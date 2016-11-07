@@ -1,0 +1,35 @@
+NodeJS Package Dependencies:
+
+"devDependencies": {
+  "angular2-template-loader": "^0.4.0",
+  "awesome-typescript-loader": "^1.1.1",
+  "compass-mixins": "^0.12.10",
+  "css-loader": "^0.23.1",
+  "extract-text-webpack-plugin": "^1.0.1",
+  "node-sass": "^3.10.0",
+  "raw-loader": "^0.5.1",
+  "sass-loader": "^4.0.2",
+  "style-loader": "^0.13.1",
+  "to-string-loader": "^1.1.4",
+  "typescript": "^2.0.2",
+  "typings": "~1.0.3",
+  "webpack": "^1.13.2",
+  "webpack-dev-server": "^1.14.0",
+  "webpack-merge": "^0.8.4"
+},
+"dependencies": {
+  "@angular/common": "2.0.0",
+  "@angular/compiler": "2.0.0",
+  "@angular/core": "2.0.0",
+  "@angular/forms": "2.0.0",
+  "@angular/http": "2.0.0",
+  "@angular/platform-browser": "2.0.0",
+  "@angular/platform-browser-dynamic": "2.0.0",
+  "@angular/platform-server": "2.0.0",
+  "@angular/router": "3.0.0",
+  "core-js": "^2.4.0",
+  "extract-text-webpack-plugin": "^1.0.1",
+  "ie-shim": "^0.1.0",
+  "rxjs": "5.0.0-beta.12",
+  "zone.js": "~0.6.17"
+}

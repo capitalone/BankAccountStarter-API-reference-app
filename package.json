@@ -1,0 +1,63 @@
+{
+  "name": "BankAccountStarter-API-reference-app",
+  "version": "1.0.0",
+  "description": "A simple starter project demonstrating on how to use capitalone public api to create an account.",
+  "scripts": {
+    "typings-install": "typings install",
+    "postinstall": "npm run typings-install",
+    "build": "webpack --inline --colors --progress --display-error-details --display-cached",
+    "watch": "npm run build -- --watch",
+    "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
+    "prestart": "npm run build",
+    "start": "node app"
+  },
+  "contributors": [
+    "Tirumala Rao Kavala <tiru67@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "angular2-template-loader": "^0.4.0",
+    "awesome-typescript-loader": "^1.1.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "raw-loader": "^0.5.1",
+    "request-debug": "^0.2.0",
+    "typescript": "^2.0.2",
+    "typings": "~1.0.3",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.14.0",
+    "webpack-merge": "^0.8.4"
+  },
+  "dependencies": {
+    "@angular/common": "2.0.0",
+    "@angular/compiler": "2.0.0",
+    "@angular/core": "2.0.0",
+    "@angular/forms": "2.0.0",
+    "@angular/http": "2.0.0",
+    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser-dynamic": "2.0.0",
+    "@angular/router": "3.0.0",
+    "core-js": "^2.4.0",
+    "debug": "^2.2.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "ie-shim": "^0.1.0",
+    "lodash": "^4.16.4",
+    "request": "^2.76.0",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "~0.6.17",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0"
+  },
+  "keywords": [
+    "Angular2",
+    "BankAccountStarter-API-reference-app"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capitalone/BankAccountStarter-API-reference-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/capitalone/BankAccountStarter-API-reference-app/issues"
+  },
+  "homepage": "https://github.com/capitalone/BankAccountStarter-API-reference-app#readme"
+}

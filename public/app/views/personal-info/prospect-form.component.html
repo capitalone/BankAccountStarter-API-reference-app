@@ -1,0 +1,271 @@
+<!--
+Copyright 2016 Capital One Services, LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+-->
+<div class="container personal-info">
+  <div class="very-wide-layout" [ngClass]="{'application-joint':jointAccount, 'application-single':!jointAccount}">
+    <section>
+      <h1 class="step-title">First, tell us about yourself.</h1>
+      <div class="subheading">We need some basic information to confirm your identity.</div>
+      <hr />
+    </section>
+    <section>
+      <app-slide-toggle (onSliderToggle)="onSliderToggle($event)"></app-slide-toggle>
+    </section>
+    <form #personalInfoForm="ngForm" name="personalInfoForm" novalidate (ngSubmit)="submitPersonalInfo(personalInfoForm)" [ngClass]="{'formSubmitted':submitted}" id="pi-main-form">
+      <div class="application-container" [ngClass]="{'dotted-centerline':jointAccount}">
+
+        <div *ngFor="let applicant of depositApplicationModel.applicants; let applicantIndex = index" class="application-section" [ngClass]="{'application-primary':(!jointAccount && applicantIndex==0), 'application-secondary':(jointAccount && applicantIndex==1)}">
+          <article *ngIf="depositApplicationModel.applicants.length==2" class="account-heading" aria-hidden="false">
+            <h2 *ngIf="applicantIndex==0" sticky-top="123" sticky-container="pi-main-form" class="form-header" aria-hidden="false">Primary account holder</h2>
+            <h2 *ngIf="applicantIndex==1" sticky-top="123" sticky-container="pi-main-form" class="form-header" aria-hidden="true">Secondary account holder</h2>
+            </article>
+          <article>
+            <div class="form-row-double">
+              <div class="form-element first-element">
+                <label><span class="label-show-hide">First Name</span></label>
+                <input #firstName="ngModel" type="text" name="first_name-{{applicantIndex}}" label="First Name" placeholder="First Name" [(ngModel)]="applicant.firstName" required id="input-first-name-{{applicantIndex}}" />
+                <span *ngIf="!firstName.valid && (!firstName.pristine || submitted)"
+                     class="error-text error-show-hide">
+                  This field is required.
+                </span>
+              </div>
+              <!-- /.form-element -->
+              <div class="form-element last-element">
+                <label><span class="label-show-hide">Last Name</span></label>
+                <input #lastName="ngModel" type="text" name="last_name-{{applicantIndex}}" label="Last Name" placeholder="Last Name" [(ngModel)]="applicant.lastName" required id="input-last-name-{{applicantIndex}}" />
+                <span *ngIf="!lastName.valid && (!lastName.pristine || submitted)"
+                     class="error-text error-show-hide">
+                  This field is required.
+                </span>
+              </div>
+              <!-- /.form-element -->
+            </div>
+            <!-- /.form-row -->
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Date of Birth</span></label>
+                <input #dob="ngModel" name="dob-{{applicantIndex}}" type="text" label="Date of Birth" placeholder="xxxx-xx-xx" [(ngModel)]="applicant.dateOfBirth" required id="input-dob-{{applicantIndex}}" />
+                <span *ngIf="!dob.valid && (!dob.pristine || submitted)"
+                     class="error-text error-show-hide">
+                  This field is required.
+                </span>
+              </div>
+            </div>
+            <!-- /.form-row" -->
+
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">SSN</span></label>
+                <input #ssn="ngModel" name="ssn-{{applicantIndex}}" type="text" label="SSN" placeholder="SSN" [(ngModel)]="applicant.taxId" required id="input-ssn-{{applicantIndex}}" />
+                <span *ngIf="!ssn.valid && (!ssn.pristine || submitted)"
+                     class="error-text error-show-hide">
+                  This field is required.
+                </span>
+              </div>
+            </div>
+          </article>
+          <!-- /.form-row" -->
+          <article>
+              <div class="form-row">
+                <div class="form-element">
+                  <div class="input-address-line-one">
+                    <label><span class="label-show-hide">Home Address</span></label>
+                    <input #addressLine1="ngModel" type="text" name="addressLine1-{{applicantIndex}}" label="Home" placeholder="Home Address" [(ngModel)]="applicant.homeAddress.addressLine1" required id="input-address-{{applicantIndex}}" />
+                    <span *ngIf="!addressLine1.valid && (!addressLine1.pristine || submitted)"
+                         class="error-text error-show-hide">
+                      This field is required.
+                    </span>
+                  </div>
+                  <!-- /.input-address-line-one -->
+
+                  <div class="address">
+                    <div class="addCity input-address-city">
+                      <label><span class="label-show-hide">City</span></label>
+                      <input #city="ngModel" type="text" class="city" name="citytext-{{applicantIndex}}" label="City" placeholder="City" [(ngModel)]="applicant.homeAddress.city" required id="input-address-city-{{applicantIndex}}" />
+                      <span *ngIf="!city.valid && (!city.pristine || submitted)"
+                           class="error-text error-show-hide">
+                        This field is required.
+                      </span>
+                    </div>
+                    <!-- /.input-address-city -->
+
+                    <div class="addState input-address-state">
+                      <label><span class="label-show-hide">State</span></label>
+                      <input #state="ngModel" type="text" class="state" name="statetext-{{applicantIndex}}" label="State" placeholder="State" [(ngModel)]="applicant.homeAddress.stateCode" required id="input-address-state-{{applicantIndex}}" />
+                      <span *ngIf="!state.valid && (!state.pristine || submitted)"
+                           class="error-text error-show-hide">
+                        This field is required.
+                      </span>
+                    </div>
+                    <!-- /.input-address-city -->
+
+                    <div class="addZip input-address-zip">
+                      <label><span class="label-show-hide">Zipcode</span></label>
+                      <input #zipcode="ngModel" type="text" class="zipcode" name="zipcodetext-{{applicantIndex}}" label="Zipcode" placeholder="Zipcode" [(ngModel)]="applicant.homeAddress.postalCode" required id="input-address-zip-{{applicantIndex}}" />
+                      <span *ngIf="!zipcode.valid && (!zipcode.pristine || submitted)"
+                           class="error-text error-show-hide">
+                        This field is required.
+                      </span>
+                    </div>
+                    <!-- /.input-address-zip -->
+                  </div>
+                  <!-- /.address -->
+                </div>
+                <!-- /.form-element -->
+              </div>
+          </article>
+          <article>
+            <div class="form-row">
+              <div class="form-element">
+                <div class="input-email-address">
+                  <label><span class="label-show-hide">Email Address</span></label>
+                  <input #emailAddress="ngModel" type="text" name="emailAddress-{{applicantIndex}}" placeholder="Email Address" [(ngModel)]="applicant.emailAddress" required/>
+                  <span *ngIf="!emailAddress.valid && (!emailAddress.pristine || submitted)"
+                       class="error-text error-show-hide">
+                    This field is required.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-element">
+                <div class="input-email-address">
+                  <label><span class="label-show-hide">Home Phone</span></label>
+                  <input #phone="ngModel" type="text" name="phone-{{applicantIndex}}" placeholder="Home Phone" [(ngModel)]="applicant.primaryPhoneNumber" required/>
+                  <span *ngIf="!phone.valid && (!phone.pristine || submitted)"
+                       class="error-text error-show-hide">
+                    This field is required.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </article>
+        </div>
+      </div>
+      <!-- /.dotted-centerline -->
+      <!-- Funding details-->
+      <br />
+      <article>
+      <div class="form-row">
+        <div class="form-element">
+          <label><span class="label-show-hide">Funding Amount</span></label>
+          <input #fundingAmount="ngModel" name="fundng-amount" type="text" placeholder="Funding Amount" [(ngModel)]="depositApplicationModel.fundingDetails.fundingAmount" required/>
+          <span *ngIf="!fundingAmount.valid && (!fundingAmount.pristine || submitted)"
+               class="error-text error-show-hide">
+            This field is required.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-element">
+          <label><span class="label-show-hide">Account Number</span></label>
+          <input #accountNumber="ngModel" name="account-number" type="text" placeholder="Account Number" [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.accountNumber" required/>
+          <span *ngIf="!accountNumber.valid && (!accountNumber.pristine || submitted)"
+               class="error-text error-show-hide">
+            This field is required.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-element">
+          <label><span class="label-show-hide">Routing Number</span></label>
+          <input #routingNumber="ngModel" name="routing-number" type="text" placeholder="Routing Number" [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.bankABANumber" required/>
+          <span *ngIf="!routingNumber.valid && (!routingNumber.pristine || submitted)"
+               class="error-text error-show-hide">
+            This field is required.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-element">
+          <label><span class="label-show-hide">Account Ownership</span></label>
+          <span class="dropdown">
+          <select #fundOwnership="ngModel" name="account-ownership" type="text" placeholder="Account Ownership" required [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.accountOwnership" class="selectfielddrop">
+            <option value="" disabled selected>Choose Owner</option>
+            <option *ngFor="let fundOwnership of fundOwnershipArray" [ngValue]="fundOwnership">
+                {{ fundOwnership }}
+            </option>
+          </select>
+          <span *ngIf="!fundOwnership.valid && (!fundOwnership.pristine || submitted)"
+               class="error-text error-show-hide">
+            This field is required.
+          </span>
+          </span>
+        </div>
+      </div>
+    </article>
+      <hr>
+
+      <article>
+        <h3 class="subheading text-center">Now the legal details. Please read through the following documents and let us know you're OK with the account conditions.</h3>
+        <ul class="checkbox-container">
+          <li>
+            <div class="cofCheckbox">
+              <input type="checkbox" role="checkbox" name="certify_paperless" id="certify_paperless" [(ngModel)]="depositApplicationModel.termsAndConditions.acceptPaperlessAgreement" required />
+              <label for="certify_paperless" class="e2e-certify_paperless">
+                <span>I read the <a href="https://home.capitalone360.com/terms_eddn" target="_blank">Paperless Agreement</a> &amp; understand I won't receive documents in the mail</span>
+              </label>
+            </div>
+            <!-- /.cofCheckbox -->
+          </li>
+          <li>
+            <div class="cofCheckbox">
+              <input type="checkbox" role="checkbox" name="certify_disclosure" id="certify_disclosure" [(ngModel)]="depositApplicationModel.termsAndConditions.acceptAccountDisclosures" required />
+              <label for="certify_disclosure" class="e2e-certify_disclosure">
+                <span>I have read and agree to the:<br />
+                  <ul>
+                          <li><a href="https://home.capitalone360.com/terms_360savings#Truth-in-Savings-Disclosure" target="_blank" class="ng-binding">Truth in Savings Disclosures</a></li>
+                          <li><a href="https://home.capitalone360.com/terms_360savings#Account-Terms-and-Conditions" target="_blank" class="ng-binding">Account Terms and Conditions</a></li>
+                          <li><a href="https://home.capitalone360.com/terms_360savings#Electronic-Fund-Transfer-Disclosure" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a></li>
+                          <li><a href="https://home.capitalone360.com/terms_360savings#Privacy-Policy" target="_blank" class="ng-binding">Privacy Policy</a></li>
+  					      </ul>
+                </span>
+              </label>
+            </div>
+            <!-- /.cofCheckbox -->
+          </li>
+          <li>
+            <div class="cofCheckbox">
+              <input type="checkbox" role="checkbox" name="certify_identity" id="certify_identity" [(ngModel)]="depositApplicationModel.termsAndConditions.acceptFraudProtection" required />
+              <label for="certify_identity" class="e2e-certify_identity">
+                <span>I agree to let Capital One collect and use my <a href="https://home.capitalone360.com/terms_personal_data" target="_blank">personal data</a> to confirm my identity</span>
+              </label>
+            </div>
+            <!-- /.cofCheckbox -->
+          </li>
+        </ul>
+      </article>
+
+      <div class="form-footer">
+        <div class="footer-body">
+          <p class="font-light consent">The IRS does not require your consent to any provision of this document other than the certifications required to avoid backup withholding.</p>
+          <button tabindex="0" aria-disabled="false" class="joint block progress-button ng-isolate-scope" hide-header-progress="true" aria-describedby="footer-disclosure" button-state="buttonState">
+            <span class="content ng-binding">Check my information</span>
+            <span class="progress"></span>
+          </button>
+          <h2 class="disclosure-header">Important information about procedures for opening a new account</h2>
+          <p class="page-center" id="footer-disclosure">To help the government fight the funding of terrorism and money laundering activities, Federal law requires all financial institutions to obtain, verify and record information that identifies each person who opens an account. What this means
+            for you: when you open an account, we'll ask for your name, address, date of birth and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
+        </div>
+        <!-- /.footer-body -->
+      </div>
+      <!-- /.form-footer -->
+    </form>
+  </div>
+  <!-- /.very-wide-layout -->
+</div>

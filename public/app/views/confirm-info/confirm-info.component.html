@@ -1,0 +1,70 @@
+<!--
+Copyright 2016 Capital One Services, LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+-->
+<div class="container confirm-info">
+  <div class="wide-layout" [ngClass]="{'wide-layout':joint,'standard-layout':!joint}">
+    <section>
+      <h1 class="step-title">Let's make sure we got this right.</h1>
+      <p class="step-description" translate="">Review your information before we make the transfer. If something isn't right, you can make changes.</p>
+    </section>
+    <section>
+
+      <div [ngClass]="{'split-box':joint,'full-box':!joint}">
+        <div class="change-link">
+         <a href="" routerLink="/personal-info">Change<span class="ico medium blue" data-icon="&ccedil;" aria-hidden="true"></span></a>
+        </div>
+        <br/>
+        <div *ngFor="let applicant of depositApplicationModel.applicants; let applicantIndex = index" class="split-grow xs-border">
+            <h2 class="subtitle" *ngIf="applicantIndex===0 && joint">Primary Account Holder</h2>
+            <h2 class="subtitle" *ngIf="applicantIndex===1 && joint">Secondary Account Holder</h2>
+            <dl class="text-center">
+              <dt>NAME</dt>
+              <dd>{{applicant.firstName}} {{applicant.lastName}}</dd>
+              <dt>DOB</dt>
+              <dd>{{applicant.dateOfBirth}}</dd>
+              <dt>SSN</dt>
+              <dd><span>{{applicant.taxId}}</span></dd>
+              <dt>Street address, apt/suite</dt>
+              <dd>{{applicant.homeAddress.addressLine1}}, {{applicant.homeAddress.city}}, {{applicant.homeAddress.stateCode}} {{applicant.homeAddress.postalCode}}</dd>
+              <dt>Mobile number</dt>
+              <dd>{{applicant.primaryPhoneNumber}}</dd>
+              <dt>Email address</dt>
+              <dd>{{applicant.emailAddress}}</dd>
+              </dl>
+        </div>
+      </div>
+      <!-- /.split-box -->
+    </section>
+    <section>
+      <div class="full-box">
+        <h2 class="subtitle">Funding information</h2>
+        <div class="text-center">
+            <dl class="text-center">
+              <dt>Routing Number</dt>
+              <dd>{{depositApplicationModel.fundingDetails.externalAccountDetails.bankABANumber}}</dd>
+              <dt>Account Number</dt>
+              <dd>{{depositApplicationModel.fundingDetails.externalAccountDetails.accountNumber}}</dd>
+            </dl>
+          <p class="funding-ammount text-center">{{depositApplicationModel.fundingDetails.fundingAmount}}</p>
+          <br />
+        </div>
+      </div>
+    </section>
+    <section class="button-container">
+      <hr />
+      <button type="submit" class="block start-green" button-state="buttonState" (click)="createAccount()" >Open account</button>
+    </section>
+  </div>
+</div>
+<!-- /.container -->
