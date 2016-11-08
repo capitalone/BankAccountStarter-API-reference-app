@@ -41,8 +41,12 @@ export class ProspectFormComponent implements OnInit{
       this.router = router;
       this.depositApplicationModel = appService.depositApplicationModel;
       this.jointAccount = appService.jointAccount;
-      this.fundOwnershipArray = ["primary"];
-      this.depositApplicationModel.fundingDetails.externalAccountDetails.accountOwnership = "primary";
+      if(this.jointAccount){
+        this.fundOwnershipArray = ["primary","secondary","both"];
+      }else{
+        this.fundOwnershipArray = ["primary"];
+        this.depositApplicationModel.fundingDetails.externalAccountDetails.accountOwnership = "primary";
+      }
   }
 
   submitPersonalInfo(personalInfoForm:NgForm) {
@@ -74,11 +78,14 @@ export class ProspectFormComponent implements OnInit{
      let applicant2: ApplicantModel = new ApplicantModel();
      applicant2.applicantRole = "Secondary";
      this.depositApplicationModel.applicants.push(applicant2);
+     this.fundOwnershipArray = ["primary","secondary","both"];
    }
   }
   removeApplicant(){
     if(this.depositApplicationModel.applicants.length == 2){
       this.depositApplicationModel.applicants.splice(1,1);
+      this.fundOwnershipArray = ["primary"];
+      this.depositApplicationModel.fundingDetails.externalAccountDetails.accountOwnership = "primary";
     }
   }
 }

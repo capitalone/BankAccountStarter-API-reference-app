@@ -12,10 +12,7 @@ _test-output
 _temp
 dist
 *.map
-api/config/config.js
-api/config/hybrid.pem
 public/release
-api/config/config.js
 
 !karma*.js
 !protractor*.js
@@ -25,3 +22,6 @@ api/config/config.js
 !webpack.config.js
 !app.js
 !api/**/*.js
+api/config/config.js
+api/config/config.js
+api/config/hybrid.pem
