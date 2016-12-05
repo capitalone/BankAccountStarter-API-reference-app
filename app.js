@@ -30,7 +30,7 @@ var querystring = require('querystring');
 var CreateAccountClient = require('./api/CreateAccountClient');
 var oauth = require('./api/oauth');
 var oauthOptions = {
-      tokenURL: config.BASE_URI + '/oauth/oauth20/token',
+      tokenURL: config.BASE_URI + '/oauth2/token',
       // The clientId and clientSecret you received when registering your app.
       clientID: config.CLIENT_ID,
       clientSecret: config.CLIENT_SECRET
