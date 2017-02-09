@@ -20,7 +20,7 @@ export class AddressModel{
   stateCode: string;
   postalCode: string;
   addressLine2: string;
-
+  citizenshipCountry: string;
   constructor(){
   }
 }

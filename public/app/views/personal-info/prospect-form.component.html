@@ -29,14 +29,14 @@ See the License for the specific language governing permissions and limitations 
           <article *ngIf="depositApplicationModel.applicants.length==2" class="account-heading" aria-hidden="false">
             <h2 *ngIf="applicantIndex==0" sticky-top="123" sticky-container="pi-main-form" class="form-header" aria-hidden="false">Primary account holder</h2>
             <h2 *ngIf="applicantIndex==1" sticky-top="123" sticky-container="pi-main-form" class="form-header" aria-hidden="true">Secondary account holder</h2>
-            </article>
+          </article>
           <article>
             <div class="form-row-double">
               <div class="form-element first-element">
                 <label><span class="label-show-hide">First Name</span></label>
                 <input #firstName="ngModel" type="text" name="first_name-{{applicantIndex}}" label="First Name" placeholder="First Name" [(ngModel)]="applicant.firstName" required id="input-first-name-{{applicantIndex}}" />
                 <span *ngIf="!firstName.valid && (!firstName.pristine || submitted)"
-                     class="error-text error-show-hide">
+                      class="error-text error-show-hide">
                   This field is required.
                 </span>
               </div>
@@ -45,7 +45,7 @@ See the License for the specific language governing permissions and limitations 
                 <label><span class="label-show-hide">Last Name</span></label>
                 <input #lastName="ngModel" type="text" name="last_name-{{applicantIndex}}" label="Last Name" placeholder="Last Name" [(ngModel)]="applicant.lastName" required id="input-last-name-{{applicantIndex}}" />
                 <span *ngIf="!lastName.valid && (!lastName.pristine || submitted)"
-                     class="error-text error-show-hide">
+                      class="error-text error-show-hide">
                   This field is required.
                 </span>
               </div>
@@ -57,7 +57,7 @@ See the License for the specific language governing permissions and limitations 
                 <label><span class="label-show-hide">Date of Birth</span></label>
                 <input #dob="ngModel" name="dob-{{applicantIndex}}" type="text" label="Date of Birth" placeholder="xxxx-xx-xx" [(ngModel)]="applicant.dateOfBirth" required id="input-dob-{{applicantIndex}}" />
                 <span *ngIf="!dob.valid && (!dob.pristine || submitted)"
-                     class="error-text error-show-hide">
+                      class="error-text error-show-hide">
                   This field is required.
                 </span>
               </div>
@@ -69,61 +69,149 @@ See the License for the specific language governing permissions and limitations 
                 <label><span class="label-show-hide">SSN</span></label>
                 <input #ssn="ngModel" name="ssn-{{applicantIndex}}" type="text" label="SSN" placeholder="SSN" [(ngModel)]="applicant.taxId" required id="input-ssn-{{applicantIndex}}" />
                 <span *ngIf="!ssn.valid && (!ssn.pristine || submitted)"
-                     class="error-text error-show-hide">
+                      class="error-text error-show-hide">
                   This field is required.
                 </span>
               </div>
             </div>
+
+          <div class="form-row">
+            <div class="form-element">
+              <label><span class="label-show-hide">Citizenship Country</span></label>
+            <span class="dropdown">
+            <select #citizenshipCountry="ngModel" name="citizenship-country" type="text" placeholder="Citizenship Country" required [(ngModel)]="applicant.homeAddress.citizenshipCountry" class="selectfielddrop">
+              <option value="Choose Country" selected>Choose Country</option>
+              <option *ngFor="let citizenshipCountry of citizenshipCountryArray" [ngValue]="citizenshipCountry">
+                {{ citizenshipCountry.name }}
+              </option>
+            </select>
+            <span *ngIf="(!citizenshipCountry.pristine || submitted)"
+                  class="error-text error-show-hide">
+              This field is required.
+            </span>
+            </span>
+            </div>
+          </div>
+
+
+
+            <div class="form-row">
+              <div class="form-element">
+                <!--<label><span class="label-show-hide">Citizenship Country</span></label> -->
+            <span class="dropdown">
+            <select #citizenshipCountry="ngModel" name="secondary-citizenship-country" type="text" placeholder="Secondary Citizenship Country" required [(ngModel)]="applicant.homeAddress.citizenshipCountry" class="selectfielddrop">
+              <option value id label="Secondary Citizenship Country" class="ng-binding">Secondary Citizenship Country</option>
+              <option *ngFor="let citizenshipCountry of citizenshipCountryArray" [ngValue]="citizenshipCountry">
+                {{ citizenshipCountry.name }}
+              </option>
+            </select>
+            <span *ngIf="(!citizenshipCountry.pristine || submitted)"
+                  class="error-text error-show-hide">
+            </span>
+            </span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Employment Status</span></label>
+            <span class="dropdown">
+            <select #employmentStatus="ngModel" name="employment-status" type="text" placeholder="Employment Status" required [(ngModel)]="applicant.employmentStatus" class="selectfielddrop">
+              <option value="Choose Status" selected>Choose Status</option>
+              <option *ngFor="let employmentStatus of employmentStatusArray" [ngValue]="employmentStatus">
+                {{ employmentStatus.name }}
+              </option>
+            </select>
+            <span *ngIf="(!employmentStatus.pristine || submitted)"
+                  class="error-text error-show-hide">
+              This field is required.
+            </span>
+            </span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Job Title</span></label>
+                <input #jobTitle="ngModel" name="jobTitle-{{applicantIndex}}" type="text" label="jobTitle" placeholder="Job Title" [(ngModel)]="applicant.jobTitle" required id="input-jobTitle-{{applicantIndex}}" />
+                <span *ngIf="(!jobTitle.pristine || submitted)"
+                      class="error-text error-show-hide">
+                  This field is required.
+                </span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Annual Income</span></label>
+            <span class="dropdown">
+            <select #annualIncome="ngModel" name="annual-income" type="text" placeholder="Annual Income" required [(ngModel)]="applicant.annualIncome" class="selectfielddrop">
+              <option value="Choose Range" selected>Choose Range</option>
+              <option *ngFor="let annualIncome of annualIncomeArray" [ngValue]="annualIncome">
+                {{ annualIncome.name }}
+              </option>
+            </select>
+            <span *ngIf="(!annualIncome.pristine || submitted)"
+                  class="error-text error-show-hide">
+              This field is required.
+            </span>
+            </span>
+              </div>
+            </div>
+
+
+
+
           </article>
           <!-- /.form-row" -->
           <article>
-              <div class="form-row">
-                <div class="form-element">
-                  <div class="input-address-line-one">
-                    <label><span class="label-show-hide">Home Address</span></label>
-                    <input #addressLine1="ngModel" type="text" name="addressLine1-{{applicantIndex}}" label="Home" placeholder="Home Address" [(ngModel)]="applicant.homeAddress.addressLine1" required id="input-address-{{applicantIndex}}" />
+            <div class="form-row">
+              <div class="form-element">
+                <div class="input-address-line-one">
+                  <label><span class="label-show-hide">Home Address</span></label>
+                  <input #addressLine1="ngModel" type="text" name="addressLine1-{{applicantIndex}}" label="Home" placeholder="Home Address" [(ngModel)]="applicant.homeAddress.addressLine1" required id="input-address-{{applicantIndex}}" />
                     <span *ngIf="!addressLine1.valid && (!addressLine1.pristine || submitted)"
-                         class="error-text error-show-hide">
+                          class="error-text error-show-hide">
                       This field is required.
                     </span>
-                  </div>
-                  <!-- /.input-address-line-one -->
-
-                  <div class="address">
-                    <div class="addCity input-address-city">
-                      <label><span class="label-show-hide">City</span></label>
-                      <input #city="ngModel" type="text" class="city" name="citytext-{{applicantIndex}}" label="City" placeholder="City" [(ngModel)]="applicant.homeAddress.city" required id="input-address-city-{{applicantIndex}}" />
-                      <span *ngIf="!city.valid && (!city.pristine || submitted)"
-                           class="error-text error-show-hide">
-                        This field is required.
-                      </span>
-                    </div>
-                    <!-- /.input-address-city -->
-
-                    <div class="addState input-address-state">
-                      <label><span class="label-show-hide">State</span></label>
-                      <input #state="ngModel" type="text" class="state" name="statetext-{{applicantIndex}}" label="State" placeholder="State" [(ngModel)]="applicant.homeAddress.stateCode" required id="input-address-state-{{applicantIndex}}" />
-                      <span *ngIf="!state.valid && (!state.pristine || submitted)"
-                           class="error-text error-show-hide">
-                        This field is required.
-                      </span>
-                    </div>
-                    <!-- /.input-address-city -->
-
-                    <div class="addZip input-address-zip">
-                      <label><span class="label-show-hide">Zipcode</span></label>
-                      <input #zipcode="ngModel" type="text" class="zipcode" name="zipcodetext-{{applicantIndex}}" label="Zipcode" placeholder="Zipcode" [(ngModel)]="applicant.homeAddress.postalCode" required id="input-address-zip-{{applicantIndex}}" />
-                      <span *ngIf="!zipcode.valid && (!zipcode.pristine || submitted)"
-                           class="error-text error-show-hide">
-                        This field is required.
-                      </span>
-                    </div>
-                    <!-- /.input-address-zip -->
-                  </div>
-                  <!-- /.address -->
                 </div>
-                <!-- /.form-element -->
+                <!-- /.input-address-line-one -->
+
+                <div class="address">
+                  <div class="addCity input-address-city">
+                    <label><span class="label-show-hide">City</span></label>
+                    <input #city="ngModel" type="text" class="city" name="citytext-{{applicantIndex}}" label="City" placeholder="City" [(ngModel)]="applicant.homeAddress.city" required id="input-address-city-{{applicantIndex}}" />
+                      <span *ngIf="!city.valid && (!city.pristine || submitted)"
+                            class="error-text error-show-hide">
+                        This field is required.
+                      </span>
+                  </div>
+                  <!-- /.input-address-city -->
+
+                  <div class="addState input-address-state">
+                    <label><span class="label-show-hide">State</span></label>
+                    <input #state="ngModel" type="text" class="state" name="statetext-{{applicantIndex}}" label="State" placeholder="State" [(ngModel)]="applicant.homeAddress.stateCode" required id="input-address-state-{{applicantIndex}}" />
+                      <span *ngIf="!state.valid && (!state.pristine || submitted)"
+                            class="error-text error-show-hide">
+                        This field is required.
+                      </span>
+                  </div>
+                  <!-- /.input-address-city -->
+
+                  <div class="addZip input-address-zip">
+                    <label><span class="label-show-hide">Zipcode</span></label>
+                    <input #zipcode="ngModel" type="text" class="zipcode" name="zipcodetext-{{applicantIndex}}" label="Zipcode" placeholder="Zipcode" [(ngModel)]="applicant.homeAddress.postalCode" required id="input-address-zip-{{applicantIndex}}" />
+                      <span *ngIf="!zipcode.valid && (!zipcode.pristine || submitted)"
+                            class="error-text error-show-hide">
+                        This field is required.
+                      </span>
+                  </div>
+                  <!-- /.input-address-zip -->
+                </div>
+                <!-- /.address -->
               </div>
+              <!-- /.form-element -->
+            </div>
           </article>
           <article>
             <div class="form-row">
@@ -132,7 +220,7 @@ See the License for the specific language governing permissions and limitations 
                   <label><span class="label-show-hide">Email Address</span></label>
                   <input #emailAddress="ngModel" type="text" name="emailAddress-{{applicantIndex}}" placeholder="Email Address" [(ngModel)]="applicant.emailAddress" required/>
                   <span *ngIf="!emailAddress.valid && (!emailAddress.pristine || submitted)"
-                       class="error-text error-show-hide">
+                        class="error-text error-show-hide">
                     This field is required.
                   </span>
                 </div>
@@ -144,7 +232,7 @@ See the License for the specific language governing permissions and limitations 
                   <label><span class="label-show-hide">Home Phone</span></label>
                   <input #phone="ngModel" type="text" name="phone-{{applicantIndex}}" placeholder="Home Phone" [(ngModel)]="applicant.primaryPhoneNumber" required/>
                   <span *ngIf="!phone.valid && (!phone.pristine || submitted)"
-                       class="error-text error-show-hide">
+                        class="error-text error-show-hide">
                     This field is required.
                   </span>
                 </div>
@@ -158,57 +246,57 @@ See the License for the specific language governing permissions and limitations 
       <!-- Funding details-->
       <br />
       <article>
-      <div class="form-row">
-        <div class="form-element">
-          <label><span class="label-show-hide">Funding Amount</span></label>
-          <input #fundingAmount="ngModel" name="fundng-amount" type="text" placeholder="Funding Amount" [(ngModel)]="depositApplicationModel.fundingDetails.fundingAmount" required/>
+        <div class="form-row">
+          <div class="form-element">
+            <label><span class="label-show-hide">Funding Amount</span></label>
+            <input #fundingAmount="ngModel" name="fundng-amount" type="text" placeholder="Funding Amount" [(ngModel)]="depositApplicationModel.fundingDetails.fundingAmount" required/>
           <span *ngIf="!fundingAmount.valid && (!fundingAmount.pristine || submitted)"
-               class="error-text error-show-hide">
+                class="error-text error-show-hide">
             This field is required.
           </span>
+          </div>
         </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-element">
-          <label><span class="label-show-hide">Account Number</span></label>
-          <input #accountNumber="ngModel" name="account-number" type="text" placeholder="Account Number" [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.accountNumber" required/>
+        <div class="form-row">
+          <div class="form-element">
+            <label><span class="label-show-hide">Account Number</span></label>
+            <input #accountNumber="ngModel" name="account-number" type="text" placeholder="Account Number" [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.accountNumber" required/>
           <span *ngIf="!accountNumber.valid && (!accountNumber.pristine || submitted)"
-               class="error-text error-show-hide">
+                class="error-text error-show-hide">
             This field is required.
           </span>
+          </div>
         </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-element">
-          <label><span class="label-show-hide">Routing Number</span></label>
-          <input #routingNumber="ngModel" name="routing-number" type="text" placeholder="Routing Number" [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.bankABANumber" required/>
+        <div class="form-row">
+          <div class="form-element">
+            <label><span class="label-show-hide">Routing Number</span></label>
+            <input #routingNumber="ngModel" name="routing-number" type="text" placeholder="Routing Number" [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.bankABANumber" required/>
           <span *ngIf="!routingNumber.valid && (!routingNumber.pristine || submitted)"
-               class="error-text error-show-hide">
+                class="error-text error-show-hide">
             This field is required.
           </span>
+          </div>
         </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-element">
-          <label><span class="label-show-hide">Account Ownership</span></label>
+        <div class="form-row">
+          <div class="form-element">
+            <label><span class="label-show-hide">Account Ownership</span></label>
           <span class="dropdown">
           <select #fundOwnership="ngModel" name="account-ownership" type="text" placeholder="Account Ownership" required [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.accountOwnership" class="selectfielddrop">
             <option value="" disabled selected>Choose Owner</option>
             <option *ngFor="let fundOwnership of fundOwnershipArray" [ngValue]="fundOwnership">
-                {{ fundOwnership }}
+              {{ fundOwnership }}
             </option>
           </select>
           <span *ngIf="!fundOwnership.valid && (!fundOwnership.pristine || submitted)"
-               class="error-text error-show-hide">
+                class="error-text error-show-hide">
             This field is required.
           </span>
           </span>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
       <hr>
 
       <article>
@@ -229,11 +317,11 @@ See the License for the specific language governing permissions and limitations 
               <label for="certify_disclosure" class="e2e-certify_disclosure">
                 <span>I have read and agree to the:<br />
                   <ul>
-                          <li><a href="https://home.capitalone360.com/terms_360savings#Truth-in-Savings-Disclosure" target="_blank" class="ng-binding">Truth in Savings Disclosures</a></li>
-                          <li><a href="https://home.capitalone360.com/terms_360savings#Account-Terms-and-Conditions" target="_blank" class="ng-binding">Account Terms and Conditions</a></li>
-                          <li><a href="https://home.capitalone360.com/terms_360savings#Electronic-Fund-Transfer-Disclosure" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a></li>
-                          <li><a href="https://home.capitalone360.com/terms_360savings#Privacy-Policy" target="_blank" class="ng-binding">Privacy Policy</a></li>
-  					      </ul>
+                    <li><a href="https://home.capitalone360.com/terms_360savings#Truth-in-Savings-Disclosure" target="_blank" class="ng-binding">Truth in Savings Disclosures</a></li>
+                    <li><a href="https://home.capitalone360.com/terms_360savings#Account-Terms-and-Conditions" target="_blank" class="ng-binding">Account Terms and Conditions</a></li>
+                    <li><a href="https://home.capitalone360.com/terms_360savings#Electronic-Fund-Transfer-Disclosure" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a></li>
+                    <li><a href="https://home.capitalone360.com/terms_360savings#Privacy-Policy" target="_blank" class="ng-binding">Privacy Policy</a></li>
+                  </ul>
                 </span>
               </label>
             </div>

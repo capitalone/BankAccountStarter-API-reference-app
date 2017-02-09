@@ -21,6 +21,11 @@ import { DepositApplicationModel } from '../../models/deposit-application-model'
 import { AppService } from '../../app.service';
 import {AddressModel} from '../../models/address-model';
 import { ApplicantModel } from '../../models/applicant-model';
+import {countries} from '../../data/countries';
+import {income} from '../../data/income';
+import {employment} from '../../data/employment-status';
+
+console.log(countries);
 
 @Component({
   selector: 'prospect-form',
@@ -35,12 +40,19 @@ export class ProspectFormComponent implements OnInit{
   active:boolean = true;
   fundOwnershipArray:string[];
   fundingTypeArray:string[];
+  citizenshipCountryArray:string[];
+  annualIncomeArray:string[];
+  employmentStatusArray:string[];
   router:Router;
+
 
   constructor(private appService: AppService, router: Router) {
       this.router = router;
       this.depositApplicationModel = appService.depositApplicationModel;
       this.jointAccount = appService.jointAccount;
+      this.citizenshipCountryArray = countries;
+      this.annualIncomeArray = income;
+      this.employmentStatusArray = employment;
       if(this.jointAccount){
         this.fundOwnershipArray = ["primary","secondary","both"];
       }else{
@@ -48,6 +60,8 @@ export class ProspectFormComponent implements OnInit{
         this.depositApplicationModel.fundingDetails.externalAccountDetails.accountOwnership = "primary";
       }
   }
+
+
 
   submitPersonalInfo(personalInfoForm:NgForm) {
     this.submitted = true;
