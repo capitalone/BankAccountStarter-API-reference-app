@@ -21,9 +21,9 @@ import { DepositApplicationModel } from '../../models/deposit-application-model'
 import { AppService } from '../../app.service';
 import {AddressModel} from '../../models/address-model';
 import { ApplicantModel } from '../../models/applicant-model';
-import {countries} from '../../data/countries';
-import {income} from '../../data/income';
-import {employment} from '../../data/employment-status';
+import {countries} from '../../data/data-constants';
+import {incomeRange} from '../../data/data-constants';
+import {employmentTypes} from '../../data/data-constants';
 
 console.log(countries);
 
@@ -51,8 +51,8 @@ export class ProspectFormComponent implements OnInit{
       this.depositApplicationModel = appService.depositApplicationModel;
       this.jointAccount = appService.jointAccount;
       this.citizenshipCountryArray = countries;
-      this.annualIncomeArray = income;
-      this.employmentStatusArray = employment;
+      this.annualIncomeArray = incomeRange;
+      this.employmentStatusArray = employmentTypes;
       if(this.jointAccount){
         this.fundOwnershipArray = ["primary","secondary","both"];
       }else{
