@@ -79,7 +79,7 @@ See the License for the specific language governing permissions and limitations 
             <div class="form-element">
               <label><span class="label-show-hide">Citizenship Country</span></label>
             <span class="dropdown">
-            <select #citizenshipCountry="ngModel" name="citizenship-country-{{applicantIndex}}" type="text"  placeholder="Citizenship Country" required [(ngModel)]="applicant.homeAddress.citizenshipCountry" class="selectfielddrop">
+            <select #citizenshipCountry="ngModel" name="citizenship-country-{{applicantIndex}}" type="text"  placeholder="Citizenship Country" required [(ngModel)]="applicant.citizenshipCountry" class="selectfielddrop">
               <option value="Choose Country" selected>Choose Country</option>
               <option *ngFor="let citizenshipCountry of citizenshipCountryArray" [ngValue]="citizenshipCountry.code">
                 {{ citizenshipCountry.name }}
@@ -99,7 +99,7 @@ See the License for the specific language governing permissions and limitations 
               <div class="form-element">
                 <label><span class="label-show-hide">Secondary Citizenship Country</span></label>
             <span class="dropdown">
-            <select #citizenshipCountry="ngModel" name="secondary-citizenship-country-{{applicantIndex}}" type="text" placeholder="Secondary Citizenship Country" required [(ngModel)]="applicant.homeAddress.citizenshipCountry" class="selectfielddrop">
+            <select #citizenshipCountry="ngModel" name="secondary-citizenship-country-{{applicantIndex}}" type="text" placeholder="Secondary Citizenship Country" required [(ngModel)]="applicant.citizenshipCountry" class="selectfielddrop">
               <option value="Secondary Citizenship Country" disabled selected>Secondary Citizenship Country</option>
               <option *ngFor="let citizenshipCountry of citizenshipCountryArray" [ngValue]="citizenshipCountry.code">
                 {{ citizenshipCountry.name }}

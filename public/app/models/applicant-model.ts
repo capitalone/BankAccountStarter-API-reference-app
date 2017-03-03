@@ -29,6 +29,7 @@ export class ApplicantModel {
   jobTitle: string;
   employmentStatus: string;
   annualIncome: string;
+  citizenshipCountry: string;
 
   constructor(){
     this.homeAddress = new AddressModel();
