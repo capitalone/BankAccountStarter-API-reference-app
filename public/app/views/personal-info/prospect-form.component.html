@@ -85,7 +85,7 @@ See the License for the specific language governing permissions and limitations 
                 {{ citizenshipCountry.name }}
               </option>
             </select>
-            <span *ngIf="(!citizenshipCountry.pristine || submitted)"
+            <span *ngIf="!citizenshipCountry.valid && (!citizenshipCountry.pristine || submitted)"
                   class="error-text error-show-hide">
               This field is required.
             </span>
@@ -105,7 +105,7 @@ See the License for the specific language governing permissions and limitations 
                 {{ citizenshipCountry.name }}
               </option>
             </select>
-            <span *ngIf="(!citizenshipCountry.pristine || submitted)"
+            <span *ngIf="!citizenshipCountry.valid && (!citizenshipCountry.pristine || submitted)"
                   class="error-text error-show-hide">
             </span>
             </span>
@@ -122,7 +122,7 @@ See the License for the specific language governing permissions and limitations 
                 {{ employmentStatus }}
               </option>
             </select>
-            <span *ngIf="(!employmentStatus.pristine || submitted)"
+            <span *ngIf="!employmentStatus.valid && (!employmentStatus.pristine || submitted)"
                   class="error-text error-show-hide">
               This field is required.
             </span>
