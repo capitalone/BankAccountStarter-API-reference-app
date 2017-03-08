@@ -147,7 +147,7 @@ See the License for the specific language governing permissions and limitations 
                 {{ annualIncome }}
               </option>
             </select>
-            <span *ngIf="!annualIncome.valid(!annualIncome.pristine || submitted)"
+            <span *ngIf="!annualIncome.valid && (!annualIncome.pristine || submitted)"
                   class="error-text error-show-hide">
               This field is required.
             </span>
