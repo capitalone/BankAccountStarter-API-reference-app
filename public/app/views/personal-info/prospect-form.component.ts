@@ -21,9 +21,7 @@ import { DepositApplicationModel } from '../../models/deposit-application-model'
 import { AppService } from '../../app.service';
 import {AddressModel} from '../../models/address-model';
 import { ApplicantModel } from '../../models/applicant-model';
-import {countries} from '../../data/data-constants';
-import {incomeRange} from '../../data/data-constants';
-import {employmentTypes} from '../../data/data-constants';
+import {countries,incomeRange, employmentTypes} from '../../data/data-constants';
 
 console.log(countries);
 
