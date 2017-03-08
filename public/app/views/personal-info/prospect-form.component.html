@@ -134,10 +134,6 @@ See the License for the specific language governing permissions and limitations 
               <div class="form-element">
                 <label><span class="label-show-hide">Job Title</span></label>
                 <input #jobTitle="ngModel" name="jobTitle-{{applicantIndex}}" type="text" label="jobTitle" placeholder="Job Title" [(ngModel)]="applicant.jobTitle" required id="input-jobTitle-{{applicantIndex}}" />
-                <span *ngIf="(!jobTitle.pristine || submitted)"
-                      class="error-text error-show-hide">
-                  This field is required.
-                </span>
               </div>
             </div>
 
@@ -151,7 +147,7 @@ See the License for the specific language governing permissions and limitations 
                 {{ annualIncome }}
               </option>
             </select>
-            <span *ngIf="(!annualIncome.pristine || submitted)"
+            <span *ngIf="!annualIncome.valid(!annualIncome.pristine || submitted)"
                   class="error-text error-show-hide">
               This field is required.
             </span>
