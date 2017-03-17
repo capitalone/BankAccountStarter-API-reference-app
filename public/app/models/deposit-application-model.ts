@@ -22,6 +22,7 @@ export class DepositApplicationModel{
   productId:string;
   fundingDetails:FundingDetailsModel;
   termsAndConditions:TermsAndConditionsModel;
+  promotionCode:string;
   constructor(){
     this.applicants.push(new ApplicantModel());
     this.productId= "3000";
