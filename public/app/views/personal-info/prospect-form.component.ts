@@ -81,7 +81,9 @@ export class ProspectFormComponent implements OnInit {
     setTimeout(() => this.active = true, 0);
 
     this.productId = this.route.snapshot.queryParams['productId'];
-    this.depositApplicationModel.productId = this.productId.toString();
+    if(typeof this.productId != 'undefined') {
+      this.depositApplicationModel.productId = this.productId.toString();
+    }
   }
 
   onSliderToggle(jointAccount: boolean){
