@@ -15,23 +15,24 @@ See the License for the specific language governing permissions and limitations 
 
 import { Component, OnInit, Injectable } from '@angular/core';
 import { NgClass } from '@angular/common';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import { DepositApplicationModel } from '../../models/deposit-application-model';
 import { AppService } from '../../app.service';
 import {AddressModel} from '../../models/address-model';
 import { ApplicantModel } from '../../models/applicant-model';
 import {countries,incomeRange, employmentTypes} from '../../data/data-constants';
+import { Observable }         from 'rxjs/Observable';
 
-console.log(countries);
+
+//console.log(countries);
 
 @Component({
   selector: 'prospect-form',
   templateUrl: './prospect-form.component.html'
 })
-
 @Injectable()
-export class ProspectFormComponent implements OnInit{
+export class ProspectFormComponent implements OnInit {
   jointAccount: boolean;
   submitted: boolean = false;
   depositApplicationModel:DepositApplicationModel;
@@ -41,16 +42,20 @@ export class ProspectFormComponent implements OnInit{
   citizenshipCountryArray:string[];
   annualIncomeArray:string[];
   employmentStatusArray:string[];
+  productId:string[];
   router:Router;
+  route: ActivatedRoute;
 
-
-  constructor(private appService: AppService, router: Router) {
+  constructor(private appService: AppService, router: Router, route: ActivatedRoute) {
       this.router = router;
       this.depositApplicationModel = appService.depositApplicationModel;
       this.jointAccount = appService.jointAccount;
       this.citizenshipCountryArray = countries;
       this.annualIncomeArray = incomeRange;
       this.employmentStatusArray = employmentTypes;
+      this.route = route;
+      this.productId;
+
       if(this.jointAccount){
         this.fundOwnershipArray = ["primary","secondary","both"];
       }else{
@@ -74,6 +79,11 @@ export class ProspectFormComponent implements OnInit{
   ngOnInit() {
     this.active = false;
     setTimeout(() => this.active = true, 0);
+
+    this.productId = this.route.snapshot.queryParams['productId'];
+    if(typeof this.productId != 'undefined') {
+      this.depositApplicationModel.productId = this.productId.toString();
+    }
   }
 
   onSliderToggle(jointAccount: boolean){
