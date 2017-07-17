@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and limitations 
 */
 
 import { AddressModel } from './address-model';
+import { PhoneNumberModel } from './phone-number-model';
 
 export class ApplicantModel {
   applicantRole: string;
@@ -23,8 +24,13 @@ export class ApplicantModel {
   taxId: string;
   dateOfBirth: string;
   primaryPhoneNumber: string;
+  mobilePhoneNumber: PhoneNumberModel;
+  homePhoneNumber: PhoneNumberModel;
+  workPhoneNumber: PhoneNumberModel;
   emailAddress: string;
+  backupWithHolding: boolean;
   homeAddress: AddressModel;
+  mailingAddress: AddressModel;
   middleName: string;
   jobTitle: string;
   employmentStatus: string;
@@ -33,6 +39,8 @@ export class ApplicantModel {
 
   constructor(){
     this.homeAddress = new AddressModel();
+    this.mailingAddress = new AddressModel();
+    this.mobilePhoneNumber = new PhoneNumberModel();
     this.taxIdType = "SSN";
     this.applicantRole = "primary";
   }

@@ -43,6 +43,8 @@ export class ProspectFormComponent implements OnInit {
   annualIncomeArray:string[];
   employmentStatusArray:string[];
   productId:string[];
+  cdTerm:string;
+
   router:Router;
   route: ActivatedRoute;
 
@@ -55,6 +57,7 @@ export class ProspectFormComponent implements OnInit {
       this.employmentStatusArray = employmentTypes;
       this.route = route;
       this.productId;
+      this.cdTerm;
 
       if(this.jointAccount){
         this.fundOwnershipArray = ["primary","secondary","both"];
@@ -69,8 +72,17 @@ export class ProspectFormComponent implements OnInit {
   submitPersonalInfo(personalInfoForm:NgForm) {
     this.submitted = true;
     if(personalInfoForm.form.valid){
+      this.defaultMailingAddress();
       this.appService.jointAccount = this.jointAccount;
       this.router.navigateByUrl('/confirm-info');
+    }
+  }
+
+  defaultMailingAddress(){
+    for(var a in this.depositApplicationModel.applicants){
+      if(this.depositApplicationModel.applicants[a]){
+        this.depositApplicationModel.applicants[a].mailingAddress = this.depositApplicationModel.applicants[a].homeAddress;
+      }
     }
   }
 

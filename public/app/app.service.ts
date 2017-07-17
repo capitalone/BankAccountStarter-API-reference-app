@@ -44,7 +44,7 @@ createAccount(): Observable<any> {
     let headers = new Headers(
       {
         'Content-Type': 'application/json',
-        'Accept':'application/json; v=1'
+        'Accept':'application/json;v=2'
       });
     let options = new RequestOptions({ headers: headers, method: "post" });
 
