@@ -21,6 +21,7 @@ import { DepositApplicationModel } from '../../models/deposit-application-model'
 import { AppService } from '../../app.service';
 import {AddressModel} from '../../models/address-model';
 import { ApplicantModel } from '../../models/applicant-model';
+import {ProductsDisclosuresModel} from '../../models/products-disclosures-model';
 import {countries,incomeRange, employmentTypes} from '../../data/data-constants';
 import { Observable }         from 'rxjs/Observable';
 
@@ -44,9 +45,11 @@ export class ProspectFormComponent implements OnInit {
   employmentStatusArray:string[];
   productId:string[];
   cdTerm:string;
-
+  errorMessage:any;
   router:Router;
   route: ActivatedRoute;
+  cdRateAndTermsArray:any[];
+  disclosures:ProductsDisclosuresModel;
 
   constructor(private appService: AppService, router: Router, route: ActivatedRoute) {
       this.router = router;
@@ -97,6 +100,17 @@ export class ProspectFormComponent implements OnInit {
       this.depositApplicationModel.productId = this.productId.toString();
     }
   }
+
+  ngAfterContentInit() {
+    this.appService.getCDTerms().subscribe(
+    data  => {
+         if(data){
+          this.cdRateAndTermsArray = data.annualPercentageYieldDetails.termBasedAnnualPercentageYield;
+          this.disclosures = data.disclosures;
+        }
+      },
+    error => {this.errorMessage = <any>error});
+}
 
   onSliderToggle(jointAccount: boolean){
     this.jointAccount=jointAccount;

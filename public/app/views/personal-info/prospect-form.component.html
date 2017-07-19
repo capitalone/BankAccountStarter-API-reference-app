@@ -318,19 +318,16 @@ See the License for the specific language governing permissions and limitations 
                 <span class="dropdown">
                 <select #cdTerms="ngModel" name="cd-terms" type="text" placeholder="Select Account Term &amp; Rate" required [(ngModel)]="depositApplicationModel.cdTerm" class="selectfielddrop">
                   <option value="" disabled selected>Choose Account Term &amp; Rate</option>
-                  <option value="6M" selected>6M</option>
-                  <option value="12M" selected>12M</option>
-                  <!--
-                  <option *ngFor="let cdTerms of cdTermsArray" [ngValue]="cdTerms">
-                    {{ cdTerms }}
+                  <option *ngFor="let cdTerms of cdRateAndTermsArray" [ngValue]="cdTerms.term">
+                    {{ cdTerms.term }} @ {{ cdTerms.annualPercentageYield }}%
                   </option>
-                -->
                 </select>
                 <span *ngIf="!cdTerms.valid && (!cdTerms.pristine || submitted)"
                       class="error-text error-show-hide">
                   This field is required.
                 </span>
                 </span>
+
                 </div>
               </div>
             </article>
@@ -427,16 +424,16 @@ See the License for the specific language governing permissions and limitations 
                       </div>
                       <div *ngSwitchCase="'3500'">
                         <li>
-                          <a href="https://secure.capitalone360.com/myaccount/banking/disclosure_ocd.vm?newAccount=true&term=6#Certificate%20of%20Deposit%20Disclosure" target="_blank" class="ng-binding">Certificate of Deposit Disclosures</a>
+                          <a *ngIf="disclosures" href="{{disclosures.productDisclosureUrl}}" target="_blank" class="ng-binding">Certificate of Deposit Disclosures</a>
                         </li>
                         <li>
-                          <a href="https://secure.capitalone360.com/myaccount/banking/disclosure_ocd.vm?newAccount=true&term=6#Account%20Terms%20and%20Conditions" target="_blank" class="ng-binding">Account Terms and Conditions</a>
+                          <a *ngIf="disclosures" href="{{disclosures.termsAndConditionsUrl}}" target="_blank" class="ng-binding">Account Terms and Conditions</a>
                         </li>
                         <li>
-                          <a href="https://secure.capitalone360.com/myaccount/banking/disclosure_ocd.vm?newAccount=true&term=6#Electronic%20Fund%20Transfers%20Disclosure" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a>
+                          <a *ngIf="disclosures" href="{{disclosures.electronicFundTransferDisclosureUrl}}" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a>
                         </li>
                         <li>
-                          <a href="https://secure.capitalone360.com/myaccount/banking/disclosure_ocd.vm?newAccount=true&term=6#Privacy%20Policy" target="_blank" class="ng-binding">Privacy Policy</a>
+                          <a *ngIf="disclosures" href="{{disclosures.privacyPolicyUrl}}" target="_blank" class="ng-binding">Privacy Policy</a>
                         </li>
                       </div>
                       <div *ngSwitchDefault>
