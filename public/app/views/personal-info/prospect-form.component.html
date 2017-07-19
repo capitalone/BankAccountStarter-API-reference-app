@@ -247,15 +247,15 @@ See the License for the specific language governing permissions and limitations 
                 </span>
                 <fieldset>
                   <legend class="aria-only">Consent to use mobile number</legend>
-                  <div class="radio-button-one-design">
-                    <input #mobileTcpa="ngModel" type="radio" name="mobile_tcpa-{{applicantIndex}}" value="true" [(ngModel)]="applicant.mobilePhoneNumber.acceptedTcpa" required />
-                    <label>
+                  <div class="radio-button-round-design">
+                    <input #mobileTcpa="ngModel" type="radio" name="mobile_tcpa-{{applicantIndex}}" id="mobile_tcpa-yes-{{applicantIndex}}" value="true" [(ngModel)]="applicant.mobilePhoneNumber.acceptedTcpa" required />
+                    <label attr.for="mobile_tcpa-yes-{{applicantIndex}}">
                       <span>You can call or text me through automated means</span>
                   </label>
                   </div>
-                  <div class="radio-button-one-design">
-                    <input #mobileTcpa="ngModel" type="radio" name="mobile_tcpa-{{applicantIndex}}" value="false" [(ngModel)]="applicant.mobilePhoneNumber.acceptedTcpa" required />
-                    <label>
+                  <div class="radio-button-round-design">
+                    <input #mobileTcpa="ngModel" type="radio" name="mobile_tcpa-{{applicantIndex}}" id="mobile_tcpa-no-{{applicantIndex}}" value="false" [(ngModel)]="applicant.mobilePhoneNumber.acceptedTcpa" required />
+                    <label attr.for="mobile_tcpa-no-{{applicantIndex}}">
                       <span>You can only contact me through non-automated means</span>
                     </label>
                   </div>
@@ -287,15 +287,15 @@ See the License for the specific language governing permissions and limitations 
             <!--TODO: Fix pop-ups and links-->
             <fieldset id="certify_withholding_{{applicantIndex}}" class="ng-scope"><!--TODO: this class may be important -->
             	<legend class="aria-only ng-binding">Certify that you are or are not subject to backup withholding</legend><!--TODO: this class may be important -->
-            	<div class="radio-button-one-design">
-            		<input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" value="false" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
-            		<label>
+            	<div class="radio-button-round-design">
+            		<input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" id="backupWithHolding-no-{{applicantIndex}}" value="false" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
+            		<label attr.for="backupWithHolding-no-{{applicantIndex}}">
             			<span class="ng-binding">No, I'm not subject to backup withholding</span>
             		</label>
             	</div><!-- /.radio-button -->
-            	<div class="radio-button-one-design">
-            		<input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" value="true" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
-            		<label>
+            	<div class="radio-button-round-design">
+            		<input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" id="backupWithHolding-yes-{{applicantIndex}}" value="true" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
+            		<label attr.for="backupWithHolding-yes-{{applicantIndex}}">
             			<span class="ng-binding">Yes, I have heard from the IRS that I'm subject to backup withholding</span>
             		</label>
             	</div><!-- /.radio-button -->
