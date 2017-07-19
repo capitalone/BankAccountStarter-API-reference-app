@@ -13,10 +13,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 */
 
+
 var request = require('request');
 var _ = require('lodash');
 var format = require('util').format;
 var config = require('./config/config');
+
+const CD_PRODUCT_ID = '3500';
+const CD_PRODUCT_URL = '/deposits/account-products/';
 
 // Default to a secure call to the API endpoint
 var defaultOptions = {
@@ -29,31 +33,32 @@ var defaultOptions = {
  * The API client class
  * @param options {object} Client options (host url, API version)
  */
-function CreateAccountClient (options, oauth) {
-  if (!this instanceof CreateAccountClient) {
-    return new CreateAccountClient(options);
+function CDTermsClient (options, oauth) {
+  if (!this instanceof CDTermsClient) {
+    return new CDTermsClient(options);
   }
 
   // Store the supplied options, using default values if not specified
   this.options = _.defaults({}, options, defaultOptions);
   this.oauth = oauth;
 }
-module.exports = CreateAccountClient
+module.exports = CDTermsClient
+
 
 /**
  * Perform a request to retrieve credit offers for a customer
  * @param customerInfo {object} Represents the customer info to pass to the API
  */
-CreateAccountClient.prototype.createAccount = function createAccount (customerInfo, callback) {
+CDTermsClient.prototype.getCDTerms = function getCDTerms (callback) {
+  console.log("CDTermsClient.prototype.getCDTerms");
   var client = this
   this.oauth.withToken(function (err, token) {
     if (err) { return callback(err) }
 
     var reqOptions = {
       baseUrl: client.options.url,
-      url: '/deposits/account-applications',
-      method: 'POST',
-      body:customerInfo,
+      url: CD_PRODUCT_URL+CD_PRODUCT_ID,
+      method: 'GET',
       json: true,
       headers: {
         'Accept': 'application/json; v=' + client.options.apiVersion,
@@ -67,15 +72,18 @@ CreateAccountClient.prototype.createAccount = function createAccount (customerIn
   })
 }
 
+
 /**
  * A private function to send a request to the API and parse the response, handling errors as needed
  */
-CreateAccountClient.prototype._sendRequest = function _sendRequest (reqOptions, callback) {
+CDTermsClient.prototype._sendRequest = function _sendRequest (reqOptions, callback) {
+  console.log("CDTermsClient.prototype._sendRequest");
   request(reqOptions, function (err, response, body) {
+    console.log("CDTermsClient.prototype._sendRequest.request");
     if (err) { return callback(err) }
     if (response.statusCode === 400) {
       return processResponseErrors(body, callback)
-    } else if (response.statusCode === 201) {
+    } else if (response.statusCode === 200) {
       parseResponse(body, callback)
     } else {
       var errorMessage = 'Received unexpected status code: ' + response.statusCode

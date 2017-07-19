@@ -21,6 +21,7 @@ import { DepositApplicationModel } from '../../models/deposit-application-model'
 import { AppService } from '../../app.service';
 import {AddressModel} from '../../models/address-model';
 import { ApplicantModel } from '../../models/applicant-model';
+import {ProductsDisclosuresModel} from '../../models/products-disclosures-model';
 import {countries,incomeRange, employmentTypes} from '../../data/data-constants';
 import { Observable }         from 'rxjs/Observable';
 
@@ -43,8 +44,12 @@ export class ProspectFormComponent implements OnInit {
   annualIncomeArray:string[];
   employmentStatusArray:string[];
   productId:string[];
+  cdTerm:string;
+  errorMessage:any;
   router:Router;
   route: ActivatedRoute;
+  cdRateAndTermsArray:any[];
+  disclosures:ProductsDisclosuresModel;
 
   constructor(private appService: AppService, router: Router, route: ActivatedRoute) {
       this.router = router;
@@ -55,6 +60,7 @@ export class ProspectFormComponent implements OnInit {
       this.employmentStatusArray = employmentTypes;
       this.route = route;
       this.productId;
+      this.cdTerm;
 
       if(this.jointAccount){
         this.fundOwnershipArray = ["primary","secondary","both"];
@@ -69,8 +75,17 @@ export class ProspectFormComponent implements OnInit {
   submitPersonalInfo(personalInfoForm:NgForm) {
     this.submitted = true;
     if(personalInfoForm.form.valid){
+      this.defaultMailingAddress();
       this.appService.jointAccount = this.jointAccount;
       this.router.navigateByUrl('/confirm-info');
+    }
+  }
+
+  defaultMailingAddress(){
+    for(var a in this.depositApplicationModel.applicants){
+      if(this.depositApplicationModel.applicants[a]){
+        this.depositApplicationModel.applicants[a].mailingAddress = this.depositApplicationModel.applicants[a].homeAddress;
+      }
     }
   }
 
@@ -85,6 +100,17 @@ export class ProspectFormComponent implements OnInit {
       this.depositApplicationModel.productId = this.productId.toString();
     }
   }
+
+  ngAfterContentInit() {
+    this.appService.getCDTerms().subscribe(
+    data  => {
+         if(data){
+          this.cdRateAndTermsArray = data.annualPercentageYieldDetails.termBasedAnnualPercentageYield;
+          this.disclosures = data.disclosures;
+        }
+      },
+    error => {this.errorMessage = <any>error});
+}
 
   onSliderToggle(jointAccount: boolean){
     this.jointAccount=jointAccount;

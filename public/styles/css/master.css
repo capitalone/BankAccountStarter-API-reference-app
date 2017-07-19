@@ -1694,6 +1694,11 @@ hr {
   height: 1px;
 }
 
+.legal-text {
+  font-family:Helvetica, sans-serif;
+  font-size: 0.125em;
+}
+
 .font-regular {
   font-family:Helvetica, sans-serif;
 }
@@ -2450,6 +2455,84 @@ label.show span {
   font-size: 16px;
   padding-top: 7px;
 }
+
+
+.radio-button-one-design {
+	margin: .5em 0;
+
+	[type="radio"] {
+		vertical-align: middle;
+		display: inline-block;
+		width: auto;
+		height: auto;
+
+		& + label {
+			cursor: pointer;
+			font-size: 12px;
+			font-family: $proxima-nova-light;
+			color: $dark-gray;
+
+			&:before {
+				content: '';
+				display: inline-block;
+				height: 24px;
+				width: 24px;
+				border: 2px solid #c2c0c6;
+				margin: 0 0 0 -24px;
+				vertical-align: middle;
+				background-color: $white;
+				border-radius: 100%;
+				transition: border 0.23s ease-out;
+			}
+
+			span {
+				margin-left: 2px;
+				line-height: 16px;
+				max-width: 210px;
+				vertical-align: middle;
+				display: inline-block;
+
+				@media (min-width: $screen-sm-min ) {
+					margin-left: 18px;
+					max-width: 190px;
+				}
+
+				@media (min-width: $screen-lg-min) {
+					max-width: 380px;
+				}
+
+				&.radio-error {
+					color: $destructive;
+				}
+			}
+		}
+
+		&:checked + label:before {
+			border-color: $one-design-green;
+			border-width: 6px;
+		}
+
+		&:focus + label:before {
+			border-color: $one-design-blue;
+			border-width: 6px;
+		}
+	}
+}
+
+.formSubmitted .radio-button {
+	input.ng-invalid {
+		border: 0 !important;
+	}
+}
+
+.lt-ie9 .radio-button {
+	[type="radio"] {
+		& + label:before, &.ng-invalid + label:before {
+			display: none;
+		}
+	}
+}
+
 
 .radio-button {
   margin: .5em 0;
@@ -3614,6 +3697,26 @@ label.show span {
 }
 .personal-info .form-submitted [type=checkbox].ng-invalid + label:before {
   border-color: #c01823;
+}
+
+.legal-checkbox {
+
+  .subheading {
+  margin-left: 2.3em;
+
+  @media (min-width: $screen-sm-min) {
+    margin-left: 3.5em;
+  }
+  }
+
+  [type="checkbox"] + label span {
+  font-size: 1.2em;
+  font-family: $proxima-nova-semi-bold;
+
+  @media (max-width: $screen-md-min) {
+    font-size: 1em;
+  }
+  }
 }
 
 .escalations .radio-button {
