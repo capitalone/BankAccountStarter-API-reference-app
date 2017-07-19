@@ -23,7 +23,6 @@ export class ApplicantModel {
   taxIdType: string;
   taxId: string;
   dateOfBirth: string;
-  primaryPhoneNumber: string;
   mobilePhoneNumber: PhoneNumberModel;
   homePhoneNumber: PhoneNumberModel;
   workPhoneNumber: PhoneNumberModel;
