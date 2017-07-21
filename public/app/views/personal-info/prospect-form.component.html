@@ -236,6 +236,7 @@ See the License for the specific language governing permissions and limitations 
                 </div>
               </div>
             </div>
+            <br />
             <div class="form-row">
               <div class="form-element">
                 <label><span class="label-show-hide">Mobile Phone Number Consent</span></label>
@@ -247,68 +248,65 @@ See the License for the specific language governing permissions and limitations 
                 </span>
                 <fieldset>
                   <legend class="aria-only">Consent to use mobile number</legend>
-                  <div class="radio-button-round-design">
+                  <div class="radio-button">
                     <input #mobileTcpa="ngModel" type="radio" name="mobile_tcpa-{{applicantIndex}}" id="mobile_tcpa-yes-{{applicantIndex}}" value="true" [(ngModel)]="applicant.mobilePhoneNumber.acceptedTcpa" required />
                     <label attr.for="mobile_tcpa-yes-{{applicantIndex}}">
                       <span>You can call or text me through automated means</span>
                   </label>
                   </div>
-                  <div class="radio-button-round-design">
+                  <div class="radio-button">
                     <input #mobileTcpa="ngModel" type="radio" name="mobile_tcpa-{{applicantIndex}}" id="mobile_tcpa-no-{{applicantIndex}}" value="false" [(ngModel)]="applicant.mobilePhoneNumber.acceptedTcpa" required />
                     <label attr.for="mobile_tcpa-no-{{applicantIndex}}">
                       <span>You can only contact me through non-automated means</span>
                     </label>
                   </div>
                   <div *ngIf="mobileTcpa.value==='false'" class="pad-top-one">
-                    <p class="legal-text">
+                    <p class="legal-text ng-scope">
                       If you do not allow us to contact you through automated means,<strong> it will make it more difficult to contact you to service your accounts and will impact our ability to text you important account information</strong>
                     </p>
-                    <p class="legal-text">
+                    <p class="legal-text ng-scope">
                       You've elected to disable text notification or auto-dialing. You've disabled text messaging or calls sent by automated means. For your security, we will still contact you via free automated text messages and calls in the event of fraud,
                       identity theft, data breaches, or money transfers. You can stop these types of messages by replying STOP in response to a text message, or by following any other instructions contained in the time-sensitive call
                     </p>
                   </div>
                 </fieldset>
-                <span *ngIf="mobileTcpa.pristine && submitted" class="error-text error-show-hide">
-                  <br />This field is required.
-                </span>
               </div>
             </div>
+            <hr />
+          </article>
+          <article>
+            <br />
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Under penalties of perjury, I certify that:</span></label>
+                <ul class="certify-penalties ng-scope">
+                  <li class="ng-binding">The number shown is my correct <strong>Social Security Number/Taxpayer ID Number</strong></li>
+                  <li class="ng-binding">I am a U.S. citizen or other <strong>US person</strong>.</li>
+                  <li class="ng-binding">The FATCA code(s) entered on this form (if any) indicating that I am exempt from <strong>FATCA reporting</strong> is correct. (Because we have not requested a FATCA exemption code from you, this certification does not apply.)</li>
+                </ul>
+                <h3 class="certify-header ng-binding ng-scope">My <strong>backup withholding</strong> status is:</h3>
+                <fieldset id="certify_withholding_{{applicantIndex}}" class="ng-scope">
+                  <legend class="aria-only ng-binding">Certify that you are or are not subject to backup withholding</legend>
+                    <div class="radio-button">
+                      <input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" id="backupWithHolding-no-{{applicantIndex}}" value="false" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
+                      <label attr.for="backupWithHolding-no-{{applicantIndex}}">
+                        <span class="ng-binding">No, I'm not subject to backup withholding</span>
+                      </label>
+                    </div>
+                   <div class="radio-button">
+                    <input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" id="backupWithHolding-yes-{{applicantIndex}}" value="true" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
+                    <label attr.for="backupWithHolding-yes-{{applicantIndex}}">
+                      <span class="ng-binding">Yes, I have heard from the IRS that I'm subject to backup withholding</span>
+                    </label>
+                   </div>
+                  </fieldset>
+                </div>
+              </div>
           </article>
 
-          <article>
-            <h3 class="certify-header ng-binding ng-scope">Under penalties of perjury, I certify that:</h3>
-            <ul class="certify-penalties ng-scope">
-            	<li class="ng-binding">The number shown is my correct <a href="" ng-click="broadCastMessage('msgAvailable','social_security_taxpayer_id',$event)" class="ng-binding" tabindex="0">Social Security Number/Taxpayer ID Number</a>.</li>
-            	<li class="ng-binding">I am a U.S. citizen or other <a href="" ng-click="broadCastMessage('msgAvailable','us_person',$event)" class="ng-binding" tabindex="0">US person</a>.</li>
-            	<li class="ng-binding">The FATCA code(s) entered on this form (if any) indicating that I am exempt from <a href="" ng-click="broadCastMessage('msgAvailable','fatca_reporting',$event)" class="ng-binding" tabindex="0">FATCA reporting</a> is correct. (Because we have not requested a FATCA exemption code from you, this certification does not apply.)</li>
-            </ul>
-            <h3 class="certify-header ng-binding ng-scope">My <a href="" ng-click="broadCastMessage('msgAvailable','backup_withholding',$event)" class="ng-binding" tabindex="0">backup withholding</a> status is:</h3>
-            <!--TODO: Fix pop-ups and links-->
-            <fieldset id="certify_withholding_{{applicantIndex}}" class="ng-scope"><!--TODO: this class may be important -->
-            	<legend class="aria-only ng-binding">Certify that you are or are not subject to backup withholding</legend><!--TODO: this class may be important -->
-            	<div class="radio-button-round-design">
-            		<input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" id="backupWithHolding-no-{{applicantIndex}}" value="false" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
-            		<label attr.for="backupWithHolding-no-{{applicantIndex}}">
-            			<span class="ng-binding">No, I'm not subject to backup withholding</span>
-            		</label>
-            	</div><!-- /.radio-button -->
-            	<div class="radio-button-round-design">
-            		<input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" id="backupWithHolding-yes-{{applicantIndex}}" value="true" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
-            		<label attr.for="backupWithHolding-yes-{{applicantIndex}}">
-            			<span class="ng-binding">Yes, I have heard from the IRS that I'm subject to backup withholding</span>
-            		</label>
-            	</div><!-- /.radio-button -->
-            </fieldset>
-          </article>
-          <hr />
         </div>
       </div>
-      <!-- /.dotted-centerline -->
-      <!-- Funding details-->
-      <br />
-
-
+      <hr /><br />
       <div [ngSwitch]="productId">
         <div *ngSwitchCase="'3500'">
             <article>

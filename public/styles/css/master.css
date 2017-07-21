@@ -1695,8 +1695,15 @@ hr {
 }
 
 .legal-text {
-  font-family:Helvetica, sans-serif;
-  font-size: 0.125em;
+    bottom: 2.75em;
+    font-family: proximanova-light,Arial,Helvetica,sans-serif;
+    color: #333;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+.pad-top-one {
+    padding-top: 1em;
 }
 
 .font-regular {
@@ -2457,47 +2464,20 @@ label.show span {
 }
 
 
-.radio-button-round-design {
-    margin: .5em 0
+[type="radio"] + label span.checkbox-error {
+  color: #c01823;
 }
 
-.radio-button-round-design [type=radio] {
-    vertical-align: middle;
-    display: inline-block;
-    width: auto;
-    height: auto
+.formSubmitted [type="radio"].ng-invalid + label:before {
+  border-color: #c01823;
 }
 
-.radio-button-round-design [type=radio] + label {
-    cursor: pointer;
-    font-size: 12px;
-    font-family: proximanova-light, Arial, Helvetica, sans-serif;
-    color: #333
+.personal-info .form-submitted [type="radio"].ng-invalid + label:before {
+  border-color: #c01823;
 }
 
-.radio-button-round-design [type=radio] + label:before {
-
-    content: '';
-    display: inline-block;
-    height: 24px;
-    width: 24px;
-    border: 2px solid #c2c0c6;
-    margin: 0 0 0 -24px;
-    vertical-align: middle;
-    background-color: #fff;
-    border-radius: 100%;
-    -webkit-transition: border .23s ease-out;
-    transition: border .23s ease-out
-
-}
-
-
-.radio-button-round-design [type=radio] + label span {
-    margin-left: 2px;
-    line-height: 16px;
-    max-width: 210px;
-    vertical-align: middle;
-    display: inline-block
+.personal-info .form-submitted .checkboxContainer .master-check [type="radio"].ng-invalid + label:before {
+  border-color: #c01823;
 }
 
 @media (min-width:768px) {
@@ -2514,7 +2494,7 @@ label.show span {
 }
 
 .radio-button-round-design [type=radio] + label span.radio-error {
-    color: #c01823
+    color: #c01823;
 }
 
 .radio-button-round-design [type=radio]:checked + label:before {
