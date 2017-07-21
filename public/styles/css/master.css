@@ -2480,42 +2480,6 @@ label.show span {
   border-color: #c01823;
 }
 
-@media (min-width:768px) {
-    .radio-button-round-design [type=radio] + label span {
-        margin-left: 18px;
-        max-width: 190px
-    }
-}
-
-@media (min-width:1200px) {
-    .radio-button-round-design [type=radio] + label span {
-        max-width: 380px
-    }
-}
-
-.radio-button-round-design [type=radio] + label span.radio-error {
-    color: #c01823;
-}
-
-.radio-button-round-design [type=radio]:checked + label:before {
-    border-color: #10bd1b;
-    border-width: 6px
-}
-
-.radio-button-round-design [type=radio]:focus + label:before {
-    border-color: #019ed5;
-    border-width: 6px
-}
-
-.formSubmitted .radio-button-round-design input.ng-invalid {
-    border: 0 !important
-}
-
-.lt-ie9 .radio-button-round-design [type=radio] + label:before, .lt-ie9 .radio-button-round-design [type=radio].ng-invalid + label:before {
-    display: none
-}
-
-
 .radio-button {
   margin: .5em 0;
 }
