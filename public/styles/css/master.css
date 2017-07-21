@@ -1695,8 +1695,15 @@ hr {
 }
 
 .legal-text {
-  font-family:Helvetica, sans-serif;
-  font-size: 0.125em;
+    bottom: 2.75em;
+    font-family: proximanova-light,Arial,Helvetica,sans-serif;
+    color: #333;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+.pad-top-one {
+    padding-top: 1em;
 }
 
 .font-regular {
@@ -2457,82 +2464,21 @@ label.show span {
 }
 
 
-.radio-button-one-design {
-	margin: .5em 0;
-
-	[type="radio"] {
-		vertical-align: middle;
-		display: inline-block;
-		width: auto;
-		height: auto;
-
-		& + label {
-			cursor: pointer;
-			font-size: 12px;
-			font-family: $proxima-nova-light;
-			color: $dark-gray;
-
-			&:before {
-				content: '';
-				display: inline-block;
-				height: 24px;
-				width: 24px;
-				border: 2px solid #c2c0c6;
-				margin: 0 0 0 -24px;
-				vertical-align: middle;
-				background-color: $white;
-				border-radius: 100%;
-				transition: border 0.23s ease-out;
-			}
-
-			span {
-				margin-left: 2px;
-				line-height: 16px;
-				max-width: 210px;
-				vertical-align: middle;
-				display: inline-block;
-
-				@media (min-width: $screen-sm-min ) {
-					margin-left: 18px;
-					max-width: 190px;
-				}
-
-				@media (min-width: $screen-lg-min) {
-					max-width: 380px;
-				}
-
-				&.radio-error {
-					color: $destructive;
-				}
-			}
-		}
-
-		&:checked + label:before {
-			border-color: $one-design-green;
-			border-width: 6px;
-		}
-
-		&:focus + label:before {
-			border-color: $one-design-blue;
-			border-width: 6px;
-		}
-	}
+[type="radio"] + label span.checkbox-error {
+  color: #c01823;
 }
 
-.formSubmitted .radio-button {
-	input.ng-invalid {
-		border: 0 !important;
-	}
+.formSubmitted [type="radio"].ng-invalid + label:before {
+  border-color: #c01823;
 }
 
-.lt-ie9 .radio-button {
-	[type="radio"] {
-		& + label:before, &.ng-invalid + label:before {
-			display: none;
-		}
-	}
+.personal-info .form-submitted [type="radio"].ng-invalid + label:before {
+  border-color: #c01823;
 }
 
+.personal-info .form-submitted .checkboxContainer .master-check [type="radio"].ng-invalid + label:before {
+  border-color: #c01823;
+}
 
 .radio-button {
   margin: .5em 0;
