@@ -48,25 +48,20 @@ export class AppService {
 
   createAccount(): Observable<any> {
      let body = JSON.stringify(this.depositApplicationModel);
-     let options = new RequestOptions({ headers: this.httpHeaders, method: "post" });
+     let options = new RequestOptions({ headers: this.httpHeaders });
 
-    return this.http.post(this.depositApplicationUrl, body,options)
+     return this.http.post(this.depositApplicationUrl, body,options)
                     .map(this.extractData)
                     .catch(this.handleError);
     }
 
   getCDTerms(): Observable<any> {
     let url = '/deposits/account-products/3500';
-    return this.http.get(url, this.getRequestOptionsArgs(null))
+    let options = new RequestOptions({ headers: this.httpHeaders });
+
+    return this.http.get(url, options)
                       .map(this.extractData)
                       .catch(this.handleError);
-  }
-
-  private getRequestOptionsArgs(options: RequestOptionsArgs): RequestOptionsArgs{
-    if (options==null){
-      options = {headers: this.httpHeaders, method: "get"};
-    }
-    return options;
   }
 
   private extractData(res: Response) {
