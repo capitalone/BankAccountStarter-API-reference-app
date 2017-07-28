@@ -12,22 +12,16 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 */
+export class ProductsDisclosuresModel{
 
-import {ApplicantModel} from './applicant-model';
-import {FundingDetailsModel} from './funding-details-model';
-import {TermsAndConditionsModel} from './terms-and-conditions-model'
-
-export class DepositApplicationModel{
-  applicants:ApplicantModel[]=[];
-  productId:string;
-  cdTerm:string;
-  fundingDetails:FundingDetailsModel;
-  termsAndConditions:TermsAndConditionsModel;
+  productDisclosureUrl: string;
+  termsAndConditionsUrl: string;
+  electronicFundTransferDisclosureUrl: string;
+  privacyPolicyUrl: string;
+  paperlessAgreementUrl: string;
+  fraudProtectionAgreementUrl: string;
+  tcpaDisclosureContent: string;
 
   constructor(){
-    this.applicants.push(new ApplicantModel());
-    this.productId= "3000";
-    this.fundingDetails= new FundingDetailsModel();
-    this.termsAndConditions= new TermsAndConditionsModel();
   }
 }
