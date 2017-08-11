@@ -28,7 +28,6 @@ if(process.env.DEBUG && process.env.DEBUG=='http'){
 var https = require('http');
 var querystring = require('querystring');
 var CreateAccountClient = require('./api/CreateAccountClient');
-var CDTermsClient = require('./api/CDTermsClient');
 var oauth = require('./api/oauth');
 var oauthOptions = {
       tokenURL: config.BASE_URI + '/oauth2/token',
@@ -39,7 +38,7 @@ var oauthOptions = {
 var ClientOptions =  {
     // The URL of the Credit Offers environment you are connecting to.
     url: config.BASE_URI,
-    apiVersion: 2
+    apiVersion: 1
   };
 var PORT = process.env.PORT || 8001;
 
@@ -50,14 +49,6 @@ app.post("/deposits/account-applications", function(req, res, next) {
   var customerInfo = req.body;
   var client = new CreateAccountClient(ClientOptions, oauth(oauthOptions));
   client.createAccount(customerInfo, function (err, response) {
-    if (err) { return next(err) }
-    res.json(response);
-  })
-});
-
-app.get("/deposits/account-products/3500", function(req, res, next) {
-  var client = new CDTermsClient(ClientOptions, oauth(oauthOptions));
-  client.getCDTerms(function (err, response) {
     if (err) { return next(err) }
     res.json(response);
   })
