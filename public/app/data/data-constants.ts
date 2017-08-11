@@ -1,261 +1,381 @@
-export const countries: Array<any> = [
-        {name: 'Afghanistan', code: 'AFG'},
-        {name: 'Aland Islands', code: 'ALA'},
-        {name: 'Albania', code: 'ALB'},
-        {name: 'Algeria', code: 'DZa'},
-        {name: 'American Samoa', code: 'ASM'},
-        {name: 'AndorrA', code: 'ADD'},
-        {name: 'Angola', code: 'AO'},
-        {name: 'Anguilla', code: 'AIA'},
-        {name: 'Antarctica', code: 'ATA'},
-        {name: 'Antigua and Barbuda', code: 'ATG'},
-        {name: 'Argentina', code: 'ARG'},
-        {name: 'Armenia', code: 'AMM'},
-        {name: 'Aruba', code: 'ABW'},
-        {name: 'Australia', code: 'AUS'},
-        {name: 'Austria', code: 'AUT'},
-        {name: 'Azerbaijan', code: 'AZE'},
-        {name: 'Bahamas', code: 'BHS'},
-        {name: 'Bahrain', code: 'BHR'},
-        {name: 'Bangladesh', code: 'BGD'},
-        {name: 'Barbados', code: 'BRB'},
-        {name: 'Belarus', code: 'BLR'},
-        {name: 'Belgium', code: 'BEL'},
-        {name: 'Belize', code: 'BLZ'},
-        {name: 'Benin', code: 'BEN'},
-        {name: 'Bermuda', code: 'BMU'},
-        {name: 'Bhutan', code: 'BTN'},
-        {name: 'Bolivia', code: 'BOL'},
-        {name: 'Bosnia and Herzegovina', code: 'BIH'},
-        {name: 'Botswana', code: 'BWA'},
-        {name: 'Bouvet Island', code: 'BVT'},
-        {name: 'Brazil', code: 'BRA'},
-        {name: 'British Indian Ocean Territory', code: 'IOT'},
-        {name: 'Brunei Darussalam', code: 'BRN'},
-        {name: 'Bulgaria', code: 'BGR'},
-        {name: 'Burkina Faso', code: 'BFA'},
-        {name: 'Burundi', code: 'BDI'},
-        {name: 'Cambodia', code: 'KHM'},
-        {name: 'Cameroon', code: 'CMR'},
-        {name: 'Canada', code: 'CAN'},
-        {name: 'Cape Verde', code: 'CPV'},
-        {name: 'Cayman Islands', code: 'CYM'},
-        {name: 'Central African Republic', code: 'CAF'},
-        {name: 'Chad', code: 'TCD'},
-        {name: 'Chile', code: 'CHL'},
-        {name: 'China', code: 'CHN'},
-        {name: 'Christmas Island', code: 'CXR'},
-        {name: 'Cocos (Keeling) Islands', code: 'CCK'},
-        {name: 'Colombia', code: 'COL'},
-        {name: 'Comoros', code: 'COM'},
-        {name: 'Congo', code: 'COG'},
-        {name: 'Congo, The Democratic Republic of the', code: 'COD'},
-        {name: 'Cook Islands', code: 'COK'},
-        {name: 'Costa Rica', code: 'CRI'},
-        {name: 'Cote D\'Ivoire', code: 'CIV'},
-        {name: 'Croatia', code: 'HRV'},
-        {name: 'Cuba', code: 'CUB'},
-        {name: 'Cyprus', code: 'CYP'},
-        {name: 'Czech Republic', code: 'CZE'},
-        {name: 'Denmark', code: 'DNK'},
-        {name: 'Djibouti', code: 'DJI'},
-        {name: 'Dominica', code: 'DMA'},
-        {name: 'Dominican Republic', code: 'DOM'},
-        {name: 'Ecuador', code: 'ECU'},
-        {name: 'Egypt', code: 'EGY'},
-        {name: 'El Salvador', code: 'SLV'},
-        {name: 'Equatorial Guinea', code: 'GNQ'},
-        {name: 'Eritrea', code: 'ERI'},
-        {name: 'Estonia', code: 'EST'},
-        {name: 'Ethiopia', code: 'ETH'},
-        {name: 'Falkland Islands (Malvinas)', code: 'FLK'},
-        {name: 'Faroe Islands', code: 'FRO'},
-        {name: 'Fiji', code: 'FJI'},
-        {name: 'Finland', code: 'FIN'},
-        {name: 'France', code: 'FRA'},
-        {name: 'French Guiana', code: 'GUF'},
-        {name: 'French Polynesia', code: 'PYF'},
-        {name: 'French Southern Territories', code: 'ATF'},
-        {name: 'Gabon', code: 'GAB'},
-        {name: 'Gambia', code: 'GMB'},
-        {name: 'Georgia', code: 'GEO'},
-        {name: 'Germany', code: 'DEU'},
-        {name: 'Ghana', code: 'GHA'},
-        {name: 'Gibraltar', code: 'GIB'},
-        {name: 'Greece', code: 'GRC'},
-        {name: 'Greenland', code: 'GRL'},
-        {name: 'Grenada', code: 'GRD'},
-        {name: 'Guadeloupe', code: 'GLP'},
-        {name: 'Guam', code: 'GUM'},
-        {name: 'Guatemala', code: 'GTM'},
-        {name: 'Guernsey', code: 'GGY'},
-        {name: 'Guinea', code: 'GIN'},
-        {name: 'Guinea-Bissau', code: 'GNB'},
-        {name: 'Guyana', code: 'GUY'},
-        {name: 'Haiti', code: 'HTI'},
-        {name: 'Heard Island and Mcdonald Islands', code: 'HMD'},
-        {name: 'Holy See (Vatican City State)', code: 'VAT'},
-        {name: 'Honduras', code: 'HND'},
-        {name: 'Hong Kong', code: 'HKG'},
-        {name: 'Hungary', code: 'HUN'},
-        {name: 'Iceland', code: 'ISL'},
-        {name: 'India', code: 'IND'},
-        {name: 'Indonesia', code: 'IDN'},
-        {name: 'Iran, Islamic Republic Of', code: 'IRN'},
-        {name: 'Iraq', code: 'IRQ'},
-        {name: 'Ireland', code: 'IRE'},
-        {name: 'Isle of Man', code: 'IMN'},
-        {name: 'Israel', code: 'ISR'},
-        {name: 'Italy', code: 'ITA'},
-        {name: 'Jamaica', code: 'JAM'},
-        {name: 'Japan', code: 'JPN'},
-        {name: 'Jersey', code: 'JEY'},
-        {name: 'Jordan', code: 'JOR'},
-        {name: 'Kazakhstan', code: 'KAZ'},
-        {name: 'Kenya', code: 'KEN'},
-        {name: 'Kiribati', code: 'KIR'},
-        {name: 'Korea, Democratic People\'S Republic of', code: 'PRK'},
-        {name: 'Korea, Republic of', code: 'KOR'},
-        {name: 'Kuwait', code: 'KWT'},
-        {name: 'Kyrgyzstan', code: 'KGZ'},
-        {name: 'Lao People\'S Democratic Republic', code: 'LAO'},
-        {name: 'Latvia', code: 'LVA'},
-        {name: 'Lebanon', code: 'LBN'},
-        {name: 'Lesotho', code: 'LSO'},
-        {name: 'Liberia', code: 'LBR'},
-        {name: 'Libya', code: 'LBY'},
-        {name: 'Liechtenstein', code: 'LIE'},
-        {name: 'Lithuania', code: 'LTU'},
-        {name: 'Luxembourg', code: 'LUX'},
-        {name: 'Macao', code: 'MAC'},
-        {name: 'Macedonia, The Former Yugoslav Republic of', code: 'MKD'},
-        {name: 'Madagascar', code: 'MDG'},
-        {name: 'Malawi', code: 'MWI'},
-        {name: 'Malaysia', code: 'MYS'},
-        {name: 'Maldives', code: 'MDV'},
-        {name: 'Mali', code: 'MLI'},
-        {name: 'Malta', code: 'MLT'},
-        {name: 'Marshall Islands', code: 'MHL'},
-        {name: 'Martinique', code: 'MTQ'},
-        {name: 'Mauritania', code: 'MRT'},
-        {name: 'Mauritius', code: 'MUS'},
-        {name: 'Mayotte', code: 'MYT'},
-        {name: 'Mexico', code: 'MEX'},
-        {name: 'Micronesia, Federated States of', code: 'FSM'},
-        {name: 'Moldova, Republic of', code: 'MDA'},
-        {name: 'Monaco', code: 'MCO'},
-        {name: 'Mongolia', code: 'MNG'},
-        {name: 'Montserrat', code: 'MNE'},
-        {name: 'Morocco', code: 'MAR'},
-        {name: 'Mozambique', code: 'MOZ'},
-        {name: 'Myanmar', code: 'MMR'},
-        {name: 'Namibia', code: 'NAM'},
-        {name: 'Nauru', code: 'NRU'},
-        {name: 'Nepal', code: 'NPL'},
-        {name: 'Netherlands', code: 'NLD'},
-        {name: 'New Caledonia', code: 'NCL'},
-        {name: 'New Zealand', code: 'NZL'},
-        {name: 'Nicaragua', code: 'NIC'},
-        {name: 'Niger', code: 'NER'},
-        {name: 'Nigeria', code: 'NGA'},
-        {name: 'Niue', code: 'NIU'},
-        {name: 'Norfolk Island', code: 'NFK'},
-        {name: 'Northern Mariana Islands', code: 'MNP'},
-        {name: 'Norway', code: 'NOR'},
-        {name: 'Oman', code: 'OMN'},
-        {name: 'Pakistan', code: 'PAK'},
-        {name: 'Palau', code: 'PLW'},
-        {name: 'Palestine, State of', code: 'PSE'},
-        {name: 'Panama', code: 'PAN'},
-        {name: 'Papua New Guinea', code: 'PNG'},
-        {name: 'Paraguay', code: 'PRY'},
-        {name: 'Peru', code: 'PER'},
-        {name: 'Philippines', code: 'PHL'},
-        {name: 'Pitcairn', code: 'PCN'},
-        {name: 'Poland', code: 'POL'},
-        {name: 'Portugal', code: 'PRT'},
-        {name: 'Puerto Rico', code: 'PRI'},
-        {name: 'Qatar', code: 'QAT'},
-        {name: 'Reunion', code: 'REU'},
-        {name: 'Romania', code: 'ROU'},
-        {name: 'Russian Federation', code: 'RUS'},
-        {name: 'Rwanda', code: 'RWA'},
-        {name: 'Saint Helena', code: 'SHN'},
-        {name: 'Saint Kitts and Nevis', code: 'KNA'},
-        {name: 'Saint Lucia', code: 'LCA'},
-        {name: 'Saint Pierre and Miquelon', code: 'SPM'},
-        {name: 'Saint Vincent and the Grenadines', code: 'VCT'},
-        {name: 'Samoa', code: 'WSM'},
-        {name: 'San Marino', code: 'SMR'},
-        {name: 'Sao Tome and Principe', code: 'STP'},
-        {name: 'Saudi Arabia', code: 'SAU'},
-        {name: 'Senegal', code: 'SEN'},
-        {name: 'Serbia and Montenegro', code: 'SRB'},
-        {name: 'Seychelles', code: 'SYC'},
-        {name: 'Sierra Leone', code: 'SLE'},
-        {name: 'Singapore', code: 'SGP'},
-        {name: 'Slovakia', code: 'SVK'},
-        {name: 'Slovenia', code: 'SVN'},
-        {name: 'Solomon Islands', code: 'SLB'},
-        {name: 'Somalia', code: 'SOM'},
-        {name: 'South Africa', code: 'ZAF'},
-        {name: 'South Georgia and the South Sandwich Islands', code: 'SGS'},
-        {name: 'Spain', code: 'ESP'},
-        {name: 'Sri Lanka', code: 'LKA'},
-        {name: 'Sudan', code: 'SDN'},
-        {name: 'Suriname', code: 'SUR'},
-        {name: 'Svalbard and Jan Mayen', code: 'SJM'},
-        {name: 'Swaziland', code: 'SWZ'},
-        {name: 'Sweden', code: 'SWE'},
-        {name: 'Switzerland', code: 'CHE'},
-        {name: 'Syrian Arab Republic', code: 'SYR'},
-        {name: 'Taiwan, Province of China', code: 'TWN'},
-        {name: 'Tajikistan', code: 'TJK'},
-        {name: 'Tanzania, United Republic of', code: 'TZA'},
-        {name: 'Thailand', code: 'THA'},
-        {name: 'Timor-Leste', code: 'TLS'},
-        {name: 'Togo', code: 'TGO'},
-        {name: 'Tokelau', code: 'TLK'},
-        {name: 'Tonga', code: 'TON'},
-        {name: 'Trinidad and Tobago', code: 'TTO'},
-        {name: 'Tunisia', code: 'TUN'},
-        {name: 'Turkey', code: 'TUR'},
-        {name: 'Turkmenistan', code: 'TKM'},
-        {name: 'Turks and Caicos Islands', code: 'TCA'},
-        {name: 'Tuvalu', code: 'TUV'},
-        {name: 'Uganda', code: 'UGA'},
-        {name: 'Ukraine', code: 'UKR'},
-        {name: 'United Arab Emirates', code: 'ARE'},
-        {name: 'United Kingdom', code: 'GBR'},
-        {name: 'United States', code: 'USA'},
-        {name: 'United States Minor Outlying Islands', code: 'UMI'},
-        {name: 'Uruguay', code: 'URY'},
-        {name: 'Uzbekistan', code: 'UZB'},
-        {name: 'Vanuatu', code: 'VUT'},
-        {name: 'Venezuela', code: 'VEN'},
-        {name: 'Viet Nam', code: 'VNM'},
-        {name: 'Virgin Islands, British', code: 'VGB'},
-        {name: 'Virgin Islands, U.S.', code: 'VIR'},
-        {name: 'Wallis and Futuna', code: 'WLF'},
-        {name: 'Western Sahara', code: 'ESH'},
-        {name: 'Yemen', code: 'YEM'},
-        {name: 'Zambia', code: 'ZMB'},
-        {name: 'Zimbabwe', code: 'ZWE'}
-];
+<!--
+Copyright 2016 Capital One Services, LLC
 
-export const employmentTypes: Array<string> = [
-        'Employed',
-        'Self-Employed',
-        'Retired',
-        'Student',
-        'Unemployed'
-];
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-export const incomeRange: Array<string> = [
-         'No Income',
-         '$1-$50,000',
-         '$50,001-$100,000',
-         '$100,001-$150,000',
-         '$150,001-$250,000',
-         'Over $250,000'
-];
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+-->
+<div class="container personal-info">
+  <div class="very-wide-layout" [ngClass]="{'application-joint':jointAccount, 'application-single':!jointAccount}">
+    <section>
+      <h1 class="step-title">First, tell us about yourself.</h1>
+      <div class="subheading">We need some basic information to confirm your identity.</div>
+      <hr />
+    </section>
+    <section>
+      <app-slide-toggle (onSliderToggle)="onSliderToggle($event)"></app-slide-toggle>
+    </section>
+    <form #personalInfoForm="ngForm" name="personalInfoForm" novalidate (ngSubmit)="submitPersonalInfo(personalInfoForm)" [ngClass]="{'formSubmitted':submitted}" id="pi-main-form">
+      <div class="application-container" [ngClass]="{'dotted-centerline':jointAccount}">
+
+        <div *ngFor="let applicant of depositApplicationModel.applicants; let applicantIndex = index" class="application-section" [ngClass]="{'application-primary':(!jointAccount && applicantIndex==0), 'application-secondary':(jointAccount && applicantIndex==1)}">
+          <article *ngIf="depositApplicationModel.applicants.length==2" class="account-heading" aria-hidden="false">
+            <h2 *ngIf="applicantIndex==0" sticky-top="123" sticky-container="pi-main-form" class="form-header" aria-hidden="false">Primary account holder</h2>
+            <h2 *ngIf="applicantIndex==1" sticky-top="123" sticky-container="pi-main-form" class="form-header" aria-hidden="true">Secondary account holder</h2>
+          </article>
+          <article>
+            <div class="form-row-double">
+              <div class="form-element first-element">
+                <label><span class="label-show-hide">First Name</span></label>
+                <input #firstName="ngModel" type="text" name="first_name-{{applicantIndex}}" label="First Name" placeholder="First Name" [(ngModel)]="applicant.firstName" required id="input-first-name-{{applicantIndex}}" />
+                <span *ngIf="!firstName.valid && (!firstName.pristine || submitted)"
+                      class="error-text error-show-hide">
+                  This field is required.
+                </span>
+              </div>
+              <!-- /.form-element -->
+              <div class="form-element last-element">
+                <label><span class="label-show-hide">Last Name</span></label>
+                <input #lastName="ngModel" type="text" name="last_name-{{applicantIndex}}" label="Last Name" placeholder="Last Name" [(ngModel)]="applicant.lastName" required id="input-last-name-{{applicantIndex}}" />
+                <span *ngIf="!lastName.valid && (!lastName.pristine || submitted)"
+                      class="error-text error-show-hide">
+                  This field is required.
+                </span>
+              </div>
+              <!-- /.form-element -->
+            </div>
+            <!-- /.form-row -->
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Date of Birth</span></label>
+                <input #dob="ngModel" name="dob-{{applicantIndex}}" type="text" label="Date of Birth" placeholder="xxxx-xx-xx" [(ngModel)]="applicant.dateOfBirth" required id="input-dob-{{applicantIndex}}" />
+                <span *ngIf="!dob.valid && (!dob.pristine || submitted)"
+                      class="error-text error-show-hide">
+                  This field is required.
+                </span>
+              </div>
+            </div>
+            <!-- /.form-row" -->
+
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">SSN</span></label>
+                <input #ssn="ngModel" name="ssn-{{applicantIndex}}" type="text" label="SSN" placeholder="SSN" [(ngModel)]="applicant.taxId" required id="input-ssn-{{applicantIndex}}" />
+                <span *ngIf="!ssn.valid && (!ssn.pristine || submitted)"
+                      class="error-text error-show-hide">
+                  This field is required.
+                </span>
+              </div>
+            </div>
+
+          <div class="form-row">
+            <div class="form-element">
+              <label><span class="label-show-hide">Citizenship Country</span></label>
+            <span class="dropdown">
+            <select #citizenshipCountry="ngModel" name="citizenship-country-{{applicantIndex}}" type="text"  placeholder="Citizenship Country" required [(ngModel)]="applicant.citizenshipCountry" class="selectfielddrop">
+              <option value="Choose Country" selected>Choose Country</option>
+              <option *ngFor="let citizenshipCountry of citizenshipCountryArray" [ngValue]="citizenshipCountry.code">
+                {{ citizenshipCountry.name }}
+              </option>
+            </select>
+            <span *ngIf="!citizenshipCountry.valid && (!citizenshipCountry.pristine || submitted)"
+                  class="error-text error-show-hide">
+              This field is required.
+            </span>
+            </span>
+            </div>
+          </div>
+
+
+
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Secondary Citizenship Country</span></label>
+            <span class="dropdown">
+            <select #citizenshipCountry="ngModel" name="secondary-citizenship-country-{{applicantIndex}}" type="text" placeholder="Secondary Citizenship Country" required [(ngModel)]="applicant.citizenshipCountry" class="selectfielddrop">
+              <option value="Secondary Citizenship Country" disabled selected>Secondary Citizenship Country</option>
+              <option *ngFor="let citizenshipCountry of citizenshipCountryArray" [ngValue]="citizenshipCountry.code">
+                {{ citizenshipCountry.name }}
+              </option>
+            </select>
+            <span *ngIf="!citizenshipCountry.valid && (!citizenshipCountry.pristine || submitted)"
+                  class="error-text error-show-hide">
+            </span>
+            </span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Employment Status</span></label>
+            <span class="dropdown">
+            <select #employmentStatus="ngModel" name="employment-status-{{applicantIndex}}" type="text" placeholder="Employment Status" required [(ngModel)]="applicant.employmentStatus" class="selectfielddrop">
+              <option value="Choose Status" disabled selected>Choose Status</option>
+              <option *ngFor="let employmentStatus of employmentStatusArray" [ngValue]="employmentStatus">
+                {{ employmentStatus }}
+              </option>
+            </select>
+            <span *ngIf="!employmentStatus.valid && (!employmentStatus.pristine || submitted)"
+                  class="error-text error-show-hide">
+              This field is required.
+            </span>
+            </span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Job Title</span></label>
+                <input #jobTitle="ngModel" name="jobTitle-{{applicantIndex}}" type="text" label="jobTitle" placeholder="Job Title" [(ngModel)]="applicant.jobTitle" required id="input-jobTitle-{{applicantIndex}}" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-element">
+                <label><span class="label-show-hide">Annual Income</span></label>
+            <span class="dropdown">
+            <select #annualIncome="ngModel" name="annual-income" type="text" placeholder="Annual Income" required [(ngModel)]="applicant.annualIncome" class="selectfielddrop">
+              <option value="Choose Range" disabled selected>Choose Range</option>
+              <option *ngFor="let annualIncome of annualIncomeArray" [ngValue]="annualIncome.code">
+                {{ annualIncome.name }}
+              </option>
+            </select>
+            <span *ngIf="!annualIncome.valid && (!annualIncome.pristine || submitted)"
+                  class="error-text error-show-hide">
+              This field is required.
+            </span>
+            </span>
+              </div>
+            </div>
+
+
+
+
+          </article>
+          <!-- /.form-row" -->
+          <article>
+            <div class="form-row">
+              <div class="form-element">
+                <div class="input-address-line-one">
+                  <label><span class="label-show-hide">Home Address</span></label>
+                  <input #addressLine1="ngModel" type="text" name="addressLine1-{{applicantIndex}}" label="Home" placeholder="Home Address" [(ngModel)]="applicant.homeAddress.addressLine1" required id="input-address-{{applicantIndex}}" />
+                    <span *ngIf="!addressLine1.valid && (!addressLine1.pristine || submitted)"
+                          class="error-text error-show-hide">
+                      This field is required.
+                    </span>
+                </div>
+                <!-- /.input-address-line-one -->
+
+                <div class="address">
+                  <div class="addCity input-address-city">
+                    <label><span class="label-show-hide">City</span></label>
+                    <input #city="ngModel" type="text" class="city" name="citytext-{{applicantIndex}}" label="City" placeholder="City" [(ngModel)]="applicant.homeAddress.city" required id="input-address-city-{{applicantIndex}}" />
+                      <span *ngIf="!city.valid && (!city.pristine || submitted)"
+                            class="error-text error-show-hide">
+                        This field is required.
+                      </span>
+                  </div>
+                  <!-- /.input-address-city -->
+
+                  <div class="addState input-address-state">
+                    <label><span class="label-show-hide">State</span></label>
+                    <input #state="ngModel" type="text" class="state" name="statetext-{{applicantIndex}}" label="State" placeholder="State" [(ngModel)]="applicant.homeAddress.stateCode" required id="input-address-state-{{applicantIndex}}" />
+                      <span *ngIf="!state.valid && (!state.pristine || submitted)"
+                            class="error-text error-show-hide">
+                        This field is required.
+                      </span>
+                  </div>
+                  <!-- /.input-address-city -->
+
+                  <div class="addZip input-address-zip">
+                    <label><span class="label-show-hide">Zipcode</span></label>
+                    <input #zipcode="ngModel" type="text" class="zipcode" name="zipcodetext-{{applicantIndex}}" label="Zipcode" placeholder="Zipcode" [(ngModel)]="applicant.homeAddress.postalCode" required id="input-address-zip-{{applicantIndex}}" />
+                      <span *ngIf="!zipcode.valid && (!zipcode.pristine || submitted)"
+                            class="error-text error-show-hide">
+                        This field is required.
+                      </span>
+                  </div>
+                  <!-- /.input-address-zip -->
+                </div>
+                <!-- /.address -->
+              </div>
+              <!-- /.form-element -->
+            </div>
+          </article>
+          <article>
+            <div class="form-row">
+              <div class="form-element">
+                <div class="input-email-address">
+                  <label><span class="label-show-hide">Email Address</span></label>
+                  <input #emailAddress="ngModel" type="text" name="emailAddress-{{applicantIndex}}" placeholder="Email Address" [(ngModel)]="applicant.emailAddress" required/>
+                  <span *ngIf="!emailAddress.valid && (!emailAddress.pristine || submitted)"
+                        class="error-text error-show-hide">
+                    This field is required.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-element">
+                <div class="input-email-address">
+                  <label><span class="label-show-hide">Home Phone</span></label>
+                  <input #phone="ngModel" type="text" name="phone-{{applicantIndex}}" placeholder="Home Phone" [(ngModel)]="applicant.primaryPhoneNumber" required/>
+                  <span *ngIf="!phone.valid && (!phone.pristine || submitted)"
+                        class="error-text error-show-hide">
+                    This field is required.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </article>
+        </div>
+      </div>
+      <!-- /.dotted-centerline -->
+      <!-- Funding details-->
+      <br />
+      <article>
+        <div class="form-row">
+          <div class="form-element">
+            <label><span class="label-show-hide">Funding Amount</span></label>
+            <input #fundingAmount="ngModel" name="fundng-amount" type="text" placeholder="Funding Amount" [(ngModel)]="depositApplicationModel.fundingDetails.fundingAmount" required/>
+          <span *ngIf="!fundingAmount.valid && (!fundingAmount.pristine || submitted)"
+                class="error-text error-show-hide">
+            This field is required.
+          </span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-element">
+            <label><span class="label-show-hide">Account Number</span></label>
+            <input #accountNumber="ngModel" name="account-number" type="text" placeholder="Account Number" [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.accountNumber" required/>
+          <span *ngIf="!accountNumber.valid && (!accountNumber.pristine || submitted)"
+                class="error-text error-show-hide">
+            This field is required.
+          </span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-element">
+            <label><span class="label-show-hide">Routing Number</span></label>
+            <input #routingNumber="ngModel" name="routing-number" type="text" placeholder="Routing Number" [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.bankABANumber" required/>
+          <span *ngIf="!routingNumber.valid && (!routingNumber.pristine || submitted)"
+                class="error-text error-show-hide">
+            This field is required.
+          </span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-element">
+            <label><span class="label-show-hide">Account Ownership</span></label>
+          <span class="dropdown">
+          <select #fundOwnership="ngModel" name="account-ownership" type="text" placeholder="Account Ownership" required [(ngModel)]="depositApplicationModel.fundingDetails.externalAccountDetails.accountOwnership" class="selectfielddrop">
+            <option value="" disabled selected>Choose Owner</option>
+            <option *ngFor="let fundOwnership of fundOwnershipArray" [ngValue]="fundOwnership">
+              {{ fundOwnership }}
+            </option>
+          </select>
+          <span *ngIf="!fundOwnership.valid && (!fundOwnership.pristine || submitted)"
+                class="error-text error-show-hide">
+            This field is required.
+          </span>
+          </span>
+          </div>
+        </div>
+      </article>
+      <hr>
+
+      <article>
+        <h3 class="subheading text-center">Now the legal details. Please read through the following documents and let us know you're OK with the account conditions.</h3>
+        <ul class="checkbox-container">
+          <li>
+            <div class="cofCheckbox">
+              <input type="checkbox" role="checkbox" name="certify_paperless" id="certify_paperless" [(ngModel)]="depositApplicationModel.termsAndConditions.acceptPaperlessAgreement" required />
+              <label for="certify_paperless" class="e2e-certify_paperless">
+                <span>I read the <a href="https://home.capitalone360.com/terms_eddn" target="_blank">Paperless Agreement</a> &amp; understand I won't receive documents in the mail</span>
+              </label>
+            </div>
+            <!-- /.cofCheckbox -->
+          </li>
+          <li>
+            <div class="cofCheckbox">
+              <input type="checkbox" role="checkbox" name="certify_disclosure" id="certify_disclosure" [(ngModel)]="depositApplicationModel.termsAndConditions.acceptAccountDisclosures" required />
+              <label for="certify_disclosure" class="e2e-certify_disclosure">
+                <span>I have read and agree to the:<br />
+                  <ul>
+                    <div [ngSwitch]="productId">
+                      <div *ngSwitchCase="'3300'">
+                        <li>
+                          <a href="https://www.capitalone.com/online-money-market-account/disclosures/" target="_blank" class="ng-binding">Money Market Disclosures</a>
+                        </li>
+                        <li>
+                          <a href="https://www.capitalone.com/online-money-market-account/disclosures/#360moneymarketagreement" target="_blank" class="ng-binding">Account Terms and Conditions</a>
+                        </li>
+                        <li>
+                          <a href="https://www.capitalone.com/online-money-market-account/disclosures/#electronicfundtransferdisclosurestatement" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a>
+                        </li>
+                        <li>
+                          <a href="https://www.capitalone.com/online-money-market-account/disclosures/#privacypolicy" target="_blank" class="ng-binding">Privacy Policy</a>
+                        </li>
+                      </div>
+                      <div *ngSwitchDefault>
+                        <li>
+                          <a href="https://home.capitalone360.com/terms_360savings#Truth-in-Savings-Disclosure" target="_blank" class="ng-binding">Truth in Savings Disclosures</a>
+                        </li>
+                        <li>
+                          <a href="https://home.capitalone360.com/terms_360savings#Account-Terms-and-Conditions" target="_blank" class="ng-binding">Account Terms and Conditions</a>
+                        </li>
+                        <li>
+                          <a href="https://home.capitalone360.com/terms_360savings#Electronic-Fund-Transfer-Disclosure" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a>
+                        </li>
+                        <li>
+                          <a href="https://home.capitalone360.com/terms_360savings#Privacy-Policy" target="_blank" class="ng-binding">Privacy Policy</a>
+                        </li>
+                      </div>
+                    </div>
+                  </ul>
+                </span>
+              </label>
+            </div>
+            <!-- /.cofCheckbox -->
+          </li>
+          <li>
+            <div class="cofCheckbox">
+              <input type="checkbox" role="checkbox" name="certify_identity" id="certify_identity" [(ngModel)]="depositApplicationModel.termsAndConditions.acceptFraudProtection" required />
+              <label for="certify_identity" class="e2e-certify_identity">
+                <span>I agree to let Capital One collect and use my <a href="https://home.capitalone360.com/terms_personal_data" target="_blank">personal data</a> to confirm my identity</span>
+              </label>
+            </div>
+            <!-- /.cofCheckbox -->
+          </li>
+        </ul>
+      </article>
+
+      <div class="form-footer">
+        <div class="footer-body">
+          <p class="font-light consent">The IRS does not require your consent to any provision of this document other than the certifications required to avoid backup withholding.</p>
+          <button tabindex="0" aria-disabled="false" class="joint block progress-button ng-isolate-scope" hide-header-progress="true" aria-describedby="footer-disclosure" button-state="buttonState">
+            <span class="content ng-binding">Check my information</span>
+            <span class="progress"></span>
+          </button>
+          <h2 class="disclosure-header">Important information about procedures for opening a new account</h2>
+          <p class="page-center" id="footer-disclosure">To help the government fight the funding of terrorism and money laundering activities, Federal law requires all financial institutions to obtain, verify and record information that identifies each person who opens an account. What this means
+            for you: when you open an account, we'll ask for your name, address, date of birth and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>
+        </div>
+        <!-- /.footer-body -->
+      </div>
+      <!-- /.form-footer -->
+    </form>
+  </div>
+  <!-- /.very-wide-layout -->
+</div>
