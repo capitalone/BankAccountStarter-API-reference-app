@@ -143,8 +143,8 @@ See the License for the specific language governing permissions and limitations 
             <span class="dropdown">
             <select #annualIncome="ngModel" name="annual-income" type="text" placeholder="Annual Income" required [(ngModel)]="applicant.annualIncome" class="selectfielddrop">
               <option value="Choose Range" disabled selected>Choose Range</option>
-              <option *ngFor="let annualIncome of annualIncomeArray" [ngValue]="annualIncome">
-                {{ annualIncome }}
+              <option *ngFor="let annualIncome of annualIncomeArray" [ngValue]="annualIncome.code">
+                {{ annualIncome.name }}
               </option>
             </select>
             <span *ngIf="!annualIncome.valid && (!annualIncome.pristine || submitted)"
