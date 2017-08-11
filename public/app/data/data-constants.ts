@@ -251,11 +251,11 @@ export const employmentTypes: Array<string> = [
         'Unemployed'
 ];
 
-export const incomeRange: Array<string> = [
-         'No Income',
-         '$1-$50,000',
-         '$50,001-$100,000',
-         '$100,001-$150,000',
-         '$150,001-$250,000',
-         'Over $250,000'
+export const incomeRange: Array<any> = [
+         {name: 'No Income', code: '0'},
+         {name: '$1-$50,000', code: '25000'},
+         {name: '$50,001-$100,000', code: '75000'},
+         {name: '$100,001-$150,000', code: '125000'},
+         {name: '$150,001-$250,000', code: '200000'},
+         {name: 'Over $250,000', code: '250000'}
 ];
