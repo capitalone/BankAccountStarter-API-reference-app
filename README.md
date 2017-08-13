@@ -2,6 +2,8 @@
 
 A simple starter project demonstrating on how to use capitalone public api to create an account.
 
+| **Note** | As of 08/15/2017, Bank Account Starter API has released a version 2 which is the only version supported in Production. The reference application code built against version 1 is preserved for history only and should not be used past 08/15/2017. 'master' branch is updated to use version 2 API as well. |
+| ---- | ---- |
 
 ### Usage
 - Clone or fork this repository
