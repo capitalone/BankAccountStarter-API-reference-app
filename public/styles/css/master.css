@@ -36,7 +36,7 @@ table {
   box-sizing: border-box;
 }
 
-@font-face {
+@font-face { 
   font-family: "CapitalOne360Icons";
   src: url("../fonts/360icons/CapitalOneIcons-Regular.eot");
   src: url("../fonts/360icons/CapitalOneIcons-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/360icons/CapitalOneIcons-Regular.woff2") format("woff2"), url("../fonts/360icons/CapitalOneIcons-Regular.woff") format("woff"), url("../fonts/360icons/CapitalOneIcons-Regular.ttf") format("truetype"), url("../fonts/360icons/CapitalOneIcons-Regular.svg#CapitalOneIcons-Regular") format("svg");

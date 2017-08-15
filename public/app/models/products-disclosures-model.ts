@@ -18,6 +18,7 @@ export class ProductsDisclosuresModel{
   termsAndConditionsUrl: string;
   electronicFundTransferDisclosureUrl: string;
   privacyPolicyUrl: string;
+  wireTransferAgreementUrl: string;
   paperlessAgreementUrl: string;
   fraudProtectionAgreementUrl: string;
   tcpaDisclosureContent: string;

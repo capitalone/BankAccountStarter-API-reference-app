@@ -20,7 +20,7 @@ import {TermsAndConditionsModel} from './terms-and-conditions-model'
 export class DepositApplicationModel{
   applicants:ApplicantModel[]=[];
   productId:string;
-  cdTerm:string;
+  cdTerm:string; 
   fundingDetails:FundingDetailsModel;
   termsAndConditions:TermsAndConditionsModel;
 

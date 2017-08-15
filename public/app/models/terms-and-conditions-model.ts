@@ -17,5 +17,5 @@ export class TermsAndConditionsModel{
   acceptAccountDisclosures:boolean;
   acceptPaperlessAgreement: boolean;
   acceptFraudProtection: boolean;
-  constructor(){}
+  constructor(){} 
 }
