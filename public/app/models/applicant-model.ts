@@ -27,7 +27,7 @@ export class ApplicantModel {
   homePhoneNumber: PhoneNumberModel;
   workPhoneNumber: PhoneNumberModel;
   emailAddress: string;
-  backupWithHolding: boolean;
+  backupWithholding: boolean;
   homeAddress: AddressModel;
   mailingAddress: AddressModel;
   middleName: string;
