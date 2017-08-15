@@ -288,14 +288,14 @@ See the License for the specific language governing permissions and limitations 
                 <fieldset id="certify_withholding_{{applicantIndex}}" class="ng-scope">
                   <legend class="aria-only ng-binding">Certify that you are or are not subject to backup withholding</legend>
                     <div class="radio-button">
-                      <input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" id="backupWithHolding-no-{{applicantIndex}}" value="false" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
-                      <label attr.for="backupWithHolding-no-{{applicantIndex}}">
+                      <input #backupWithholding="ngModel" type="radio" name="backupWithholding-{{applicantIndex}}" id="backupWithholding-no-{{applicantIndex}}" value="false" [(ngModel)]="applicant.backupWithholding" ng-change="personalInfo.certify.resetTaxCertification()" required />
+                      <label attr.for="backupWithholding-no-{{applicantIndex}}">
                         <span class="ng-binding">No, I'm not subject to backup withholding</span>
                       </label>
                     </div>
                    <div class="radio-button">
-                    <input #backupWithHolding="ngModel" type="radio" name="backupWithHolding-{{applicantIndex}}" id="backupWithHolding-yes-{{applicantIndex}}" value="true" [(ngModel)]="applicant.backupWithHolding" ng-change="personalInfo.certify.resetTaxCertification()" required />
-                    <label attr.for="backupWithHolding-yes-{{applicantIndex}}">
+                    <input #backupWithholding="ngModel" type="radio" name="backupWithholding-{{applicantIndex}}" id="backupWithholding-yes-{{applicantIndex}}" value="true" [(ngModel)]="applicant.backupWithholding" ng-change="personalInfo.certify.resetTaxCertification()" required />
+                    <label attr.for="backupWithholding-yes-{{applicantIndex}}">
                       <span class="ng-binding">Yes, I have heard from the IRS that I'm subject to backup withholding</span>
                     </label>
                    </div>
@@ -403,26 +403,52 @@ See the License for the specific language governing permissions and limitations 
             <div class="cofCheckbox">
               <input type="checkbox" role="checkbox" name="certify_disclosure" id="certify_disclosure" [(ngModel)]="depositApplicationModel.termsAndConditions.acceptAccountDisclosures" required />
               <label for="certify_disclosure" class="e2e-certify_disclosure">
-                <span>I have read and agree to the:<br />
+                <span>I have read and agree to the:
                   <ul>
-                    <li>
-                      <a *ngIf="disclosures" href="{{disclosures.productDisclosureUrl}}" target="_blank" class="ng-binding">
-                        <div [ngSwitch]="productId">
-                          <div *ngSwitchCase="'3300'">Money Market Disclosures</div>
-                          <div *ngSwitchCase="'3500'">Certificate of Deposit Disclosures</div>
-                          <div *ngSwitchDefault>Truth in Savings Disclosures</div>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a *ngIf="disclosures" href="{{disclosures.termsAndConditionsUrl}}" target="_blank" class="ng-binding">Account Terms and Conditions</a>
-                    </li>
-                    <li>
-                      <a *ngIf="disclosures" href="{{disclosures.electronicFundTransferDisclosureUrl}}" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a>
-                    </li>
-                    <li>
-                      <a *ngIf="disclosures" href="{{disclosures.privacyPolicyUrl}}" target="_blank" class="ng-binding">Privacy Policy</a>
-                    </li>
+                    <div [ngSwitch]="productId">
+                       <div *ngSwitchCase="'3300'">
+                         <li>
+                           <a href="https://www.capitalone.com/online-money-market-account/disclosures/" target="_blank" class="ng-binding">Money Market Disclosures</a>
+                         </li>
+                         <li>
+                           <a href="https://www.capitalone.com/online-money-market-account/disclosures/#360moneymarketagreement" target="_blank" class="ng-binding">Account Terms and Conditions</a>
+                         </li>
+                         <li>
+                           <a href="https://www.capitalone.com/online-money-market-account/disclosures/#electronicfundtransferdisclosurestatement" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a>
+                         </li>
+                         <li>
+                           <a href="https://www.capitalone.com/online-money-market-account/disclosures/#privacypolicy" target="_blank" class="ng-binding">Privacy Policy</a>
+                         </li>
+                       </div>
+                       <div *ngSwitchCase="'3500'">
+                         <li>
+                           <a *ngIf="disclosures" href="{{disclosures.productDisclosureUrl}}" target="_blank" class="ng-binding">Certificate of Deposit Disclosures</a>
+                         </li>
+                         <li>
+                           <a *ngIf="disclosures" href="{{disclosures.termsAndConditionsUrl}}" target="_blank" class="ng-binding">Account Terms and Conditions</a>
+                         </li>
+                         <li>
+                           <a *ngIf="disclosures" href="{{disclosures.electronicFundTransferDisclosureUrl}}" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a>
+                         </li>
+                         <li>
+                           <a *ngIf="disclosures" href="{{disclosures.privacyPolicyUrl}}" target="_blank" class="ng-binding">Privacy Policy</a>
+                         </li>
+                       </div>
+                       <div *ngSwitchDefault>
+                         <li>
+                           <a href="https://home.capitalone360.com/terms_360savings#Truth-in-Savings-Disclosure" target="_blank" class="ng-binding">Truth in Savings Disclosures</a>
+                         </li>
+                         <li>
+                           <a href="https://home.capitalone360.com/terms_360savings#Account-Terms-and-Conditions" target="_blank" class="ng-binding">Account Terms and Conditions</a>
+                         </li>
+                         <li>
+                           <a href="https://home.capitalone360.com/terms_360savings#Electronic-Fund-Transfer-Disclosure" target="_blank" class="ng-binding">Electronic Fund Transfer Disclosure</a>
+                         </li>
+                         <li>
+                           <a href="https://home.capitalone360.com/terms_360savings#Privacy-Policy" target="_blank" class="ng-binding">Privacy Policy</a>
+                         </li>
+                       </div>
+                     </div>
                   </ul>
                 </span>
               </label>
