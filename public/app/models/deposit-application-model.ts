@@ -23,7 +23,6 @@ export class DepositApplicationModel{
   cdTerm:string; 
   fundingDetails:FundingDetailsModel;
   termsAndConditions:TermsAndConditionsModel;
-
   constructor(){
     this.applicants.push(new ApplicantModel());
     this.productId= "3000";

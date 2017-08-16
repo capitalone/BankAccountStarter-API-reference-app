@@ -22,7 +22,7 @@ var config = require('./config/config');
 var defaultOptions = {
   // TODO: update this value with actual/staging api host
   url: config.BASE_URI,
-  apiVersion: 2
+  apiVersion: 1
 };
 
 /**

@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0 
+    http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -208,8 +208,6 @@ See the License for the specific language governing permissions and limitations 
               </div>
               <!-- /.form-element -->
             </div>
-
-
           </article>
           <article>
             <div class="form-row">
@@ -227,49 +225,13 @@ See the License for the specific language governing permissions and limitations 
             <div class="form-row">
               <div class="form-element">
                 <div class="input-email-address">
-                  <label><span class="label-show-hide">Mobile Phone Number</span></label>
-                  <input #phone="ngModel" type="text" name="phone-{{applicantIndex}}" placeholder="Mobile Phone Number" [(ngModel)]="applicant.mobilePhoneNumber.phoneNumber" required/>
+                  <label><span class="label-show-hide">Home Phone</span></label>
+                  <input #phone="ngModel" type="text" name="phone-{{applicantIndex}}" placeholder="Home Phone" [(ngModel)]="applicant.primaryPhoneNumber" required/>
                   <span *ngIf="!phone.valid && (!phone.pristine || submitted)"
                         class="error-text error-show-hide">
                     This field is required.
                   </span>
                 </div>
-              </div>
-            </div>
-            <br />
-            <div class="form-row">
-              <div class="form-element">
-                <label><span class="label-show-hide">Mobile Phone Number Consent</span></label>
-                <span class="legal-text">
-                  If number(s) provided above is(are) mobile phone number(s), it is (they are) my mobile phone number(s), by clicking on the button below, I consent to receive autodialed
-                  and prerecorded/artificial calls, including texts, relating to my relationship with Capital One (which may include handling, servicing, and billing for any of my accounts).
-                  Message and Data rates may apply. You can stop these types of messages by replying STOP in response to a text message, or by following any other instructions
-                  contained in the time-sensitive call.
-                </span>
-                <fieldset>
-                  <legend class="aria-only">Consent to use mobile number</legend>
-                  <div class="radio-button">
-                    <input #mobileTcpa="ngModel" type="radio" name="mobile_tcpa-{{applicantIndex}}" id="mobile_tcpa-yes-{{applicantIndex}}" value="true" [(ngModel)]="applicant.mobilePhoneNumber.acceptedTcpa" required />
-                    <label attr.for="mobile_tcpa-yes-{{applicantIndex}}">
-                      <span>You can call or text me through automated means</span>
-                  </label>
-                  </div>
-                  <div class="radio-button">
-                    <input #mobileTcpa="ngModel" type="radio" name="mobile_tcpa-{{applicantIndex}}" id="mobile_tcpa-no-{{applicantIndex}}" value="false" [(ngModel)]="applicant.mobilePhoneNumber.acceptedTcpa" required />
-                    <label attr.for="mobile_tcpa-no-{{applicantIndex}}">
-                      <span>You can only contact me through non-automated means</span>
-                    </label>
-                  </div>
-                  <div *ngIf="mobileTcpa.value==='false'" class="pad-top-one">
-                    <p class="legal-text ng-scope">
-                      If you do not allow us to contact you through automated means,<strong> it will make it more difficult to contact you to service your accounts and will impact our ability to text you important account information</strong>
-                    </p>
-                    <p class="legal-text ng-scope">
-                      You've elected to disable text notification or auto-dialing. You've disabled text messaging or calls sent by automated means. For your security, we will still contact you via free automated text messages and calls in the event of fraud,
-                      identity theft, data breaches, or money transfers. You can stop these types of messages by replying STOP in response to a text message, or by following any other instructions contained in the time-sensitive call
-                    </p>
-                  </div>
-                </fieldset>
               </div>
             </div>
             <hr />
@@ -306,33 +268,9 @@ See the License for the specific language governing permissions and limitations 
 
         </div>
       </div>
-      <hr /><br />
-      <div [ngSwitch]="productId">
-        <div *ngSwitchCase="'3500'">
-            <article>
-              <div class="form-row">
-                <div class="form-element">
-                  <label><span class="label-show-hide">Select Account Term &amp; Rate</span></label>
-                <span class="dropdown">
-                <select #cdTerms="ngModel" name="cd-terms" type="text" placeholder="Select Account Term &amp; Rate" required [(ngModel)]="depositApplicationModel.cdTerm" class="selectfielddrop">
-                  <option value="" disabled selected>Choose Account Term &amp; Rate</option>
-                  <option *ngFor="let cdTerms of cdRateAndTermsArray" [ngValue]="cdTerms.term">
-                    {{ cdTerms.term }} @ {{ cdTerms.annualPercentageYield }}%
-                  </option>
-                </select>
-                <span *ngIf="!cdTerms.valid && (!cdTerms.pristine || submitted)"
-                      class="error-text error-show-hide">
-                  This field is required.
-                </span>
-                </span>
-
-                </div>
-              </div>
-            </article>
-        </div>
-      </div>
-
-
+      <!-- /.dotted-centerline -->
+      <!-- Funding details-->
+      <br />
       <article>
         <div class="form-row">
           <div class="form-element">
