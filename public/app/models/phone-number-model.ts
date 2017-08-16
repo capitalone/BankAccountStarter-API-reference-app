@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and limitations 
 export class PhoneNumberModel{
 
   phoneNumber: string;
-  acceptedTcpa: boolean; 
+  acceptedTcpa: boolean;
 
   constructor(){
   }
