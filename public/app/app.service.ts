@@ -21,7 +21,7 @@ import {ExternalAccountDetailsModel} from './models/external-account-details-mod
 import {TermsAndConditionsModel} from './models/terms-and-conditions-model';
 import { ApplicantModel } from './models/applicant-model';
 import { Observable }     from 'rxjs/Observable';
-import { Http, Response, Headers, RequestOptions, RequestOptionsArgs} from '@angular/http';
+import { Http, Response, Headers, RequestOptions} from '@angular/http';
 
 // Add the RxJS Observable operators we need in this app.
 import './rxjs-operators';
