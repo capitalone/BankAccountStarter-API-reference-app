@@ -12,10 +12,17 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 */
+export class ProductsDisclosuresModel{
 
-export class TermsAndConditionsModel{
-  acceptAccountDisclosures:boolean;
-  acceptPaperlessAgreement: boolean;
-  acceptFraudProtection: boolean;
-  constructor(){} 
+  productDisclosureUrl: string;
+  termsAndConditionsUrl: string;
+  electronicFundTransferDisclosureUrl: string;
+  privacyPolicyUrl: string;
+  wireTransferAgreementUrl: string;
+  paperlessAgreementUrl: string;
+  fraudProtectionAgreementUrl: string;
+  tcpaDisclosureContent: string;
+
+  constructor(){
+  }
 }

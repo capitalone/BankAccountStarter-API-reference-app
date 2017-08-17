@@ -1694,6 +1694,18 @@ hr {
   height: 1px;
 }
 
+.legal-text {
+    bottom: 2.75em;
+    font-family: proximanova-light,Arial,Helvetica,sans-serif;
+    color: #333;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+.pad-top-one {
+    padding-top: 1em;
+}
+
 .font-regular {
   font-family:Helvetica, sans-serif;
 }
@@ -2449,6 +2461,23 @@ label.show span {
   margin: 0 0 0 -28px;
   font-size: 16px;
   padding-top: 7px;
+}
+
+
+[type="radio"] + label span.checkbox-error {
+  color: #c01823;
+}
+
+.formSubmitted [type="radio"].ng-invalid + label:before {
+  border-color: #c01823;
+}
+
+.personal-info .form-submitted [type="radio"].ng-invalid + label:before {
+  border-color: #c01823;
+}
+
+.personal-info .form-submitted .checkboxContainer .master-check [type="radio"].ng-invalid + label:before {
+  border-color: #c01823;
 }
 
 .radio-button {
@@ -3614,6 +3643,26 @@ label.show span {
 }
 .personal-info .form-submitted [type=checkbox].ng-invalid + label:before {
   border-color: #c01823;
+}
+
+.legal-checkbox {
+
+  .subheading {
+  margin-left: 2.3em;
+
+  @media (min-width: $screen-sm-min) {
+    margin-left: 3.5em;
+  }
+  }
+
+  [type="checkbox"] + label span {
+  font-size: 1.2em;
+  font-family: $proxima-nova-semi-bold;
+
+  @media (max-width: $screen-md-min) {
+    font-size: 1em;
+  }
+  }
 }
 
 .escalations .radio-button {

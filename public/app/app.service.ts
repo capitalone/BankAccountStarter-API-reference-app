@@ -33,36 +33,47 @@ export class AppService {
   bankABANumber: String;
   accountNumber: String;
   jointAccount:boolean;
+  private httpHeaders:Headers;
   private depositApplicationUrl = '/deposits/account-applications';  // URL to web API
+
   constructor(private http: Http){
     this.depositApplicationModel= new DepositApplicationModel();
     this.jointAccount = false;
-  }
-
-createAccount(): Observable<any> {
-    let body = JSON.stringify(this.depositApplicationModel);
-    let headers = new Headers(
+    this.httpHeaders = new Headers(
       {
         'Content-Type': 'application/json',
-        'Accept':'application/json; v=1'
+        'Accept':'application/json;v=2'
       });
-    let options = new RequestOptions({ headers: headers, method: "post" });
-
-  return this.http.post(this.depositApplicationUrl, body,options)
-                  .map(this.extractData)
-                  .catch(this.handleError);
   }
 
-private extractData(res: Response) {
-  let body = res.json();
-  return body || { };
-}
-private handleError (error: any) {
-  // In a real world app, we might use a remote logging infrastructure
-  // We'd also dig deeper into the error to get a better message
-  let errMsg = (error.message) ? error.message :
-    error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-  console.error(errMsg); // log to console instead
-  return Observable.throw(errMsg);
-}
+  createAccount(): Observable<any> {
+     let body = JSON.stringify(this.depositApplicationModel);
+     let options = new RequestOptions({ headers: this.httpHeaders });
+
+     return this.http.post(this.depositApplicationUrl, body,options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+    }
+
+  getCDTerms(): Observable<any> {
+    let url = '/deposits/account-products/3500';
+    let options = new RequestOptions({ headers: this.httpHeaders });
+
+    return this.http.get(url, options)
+                      .map(this.extractData)
+                      .catch(this.handleError);
+  }
+
+  private extractData(res: Response) {
+    let body = res.json();
+    return body || { };
+  }
+  private handleError (error: any) {
+    // In a real world app, we might use a remote logging infrastructure
+    // We'd also dig deeper into the error to get a better message
+    let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    console.error(errMsg); // log to console instead
+    return Observable.throw(errMsg);
+  }
 }

@@ -1,12 +1,9 @@
 /**
 Copyright 2016 Capital One Services, LLC
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-
     http://www.apache.org/licenses/LICENSE-2.0
-
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -28,6 +25,7 @@ if(process.env.DEBUG && process.env.DEBUG=='http'){
 var https = require('http');
 var querystring = require('querystring');
 var CreateAccountClient = require('./api/CreateAccountClient');
+var CDTermsClient = require('./api/CDTermsClient');
 var oauth = require('./api/oauth');
 var oauthOptions = {
       tokenURL: config.BASE_URI + '/oauth2/token',
@@ -38,7 +36,7 @@ var oauthOptions = {
 var ClientOptions =  {
     // The URL of the Credit Offers environment you are connecting to.
     url: config.BASE_URI,
-    apiVersion: 1
+    apiVersion: 2
   };
 var PORT = process.env.PORT || 8001;
 
@@ -49,6 +47,14 @@ app.post("/deposits/account-applications", function(req, res, next) {
   var customerInfo = req.body;
   var client = new CreateAccountClient(ClientOptions, oauth(oauthOptions));
   client.createAccount(customerInfo, function (err, response) {
+    if (err) { return next(err) }
+    res.json(response);
+  })
+});
+
+app.get("/deposits/account-products/3500", function(req, res, next) {
+  var client = new CDTermsClient(ClientOptions, oauth(oauthOptions));
+  client.getCDTerms(function (err, response) {
     if (err) { return next(err) }
     res.json(response);
   })
