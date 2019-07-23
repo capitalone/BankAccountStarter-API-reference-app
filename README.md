@@ -1,3 +1,5 @@
+# Capital One built this project to help the users of this API. We are no longer actively enhancing this API. We have archived the project as of Jul 23 2019 where it will be available in a read-only state.
+
 ## Capitalone OAO Demo app
 
 A simple starter project demonstrating on how to use capitalone public api to create an account.
